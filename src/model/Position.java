@@ -8,6 +8,7 @@ public class Position {
 	{
 		this.x = x;
 		this.y = y;
+		// classe Position
 	}
 
 	public int getX() {
