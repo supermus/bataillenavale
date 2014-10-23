@@ -1,8 +1,14 @@
 bataillenavale
 ==============
 
-Projet L3 MIAGE 2014
+Note Gameconfigview 
 
-test commit eclipse
-hola
-hola
+Nom du player
+Type de partie mode demo
+		mode 1 jouer
+		mode 2 jouer 
+
+Type de bataille
+Taille de la grille 
+Difficulté de l'ia
+Nb de bateau
