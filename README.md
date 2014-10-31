@@ -10,5 +10,6 @@ Type de partie mode demo
 
 Type de bataille
 Taille de la grille 
-Difficulté de l'ia
+DifficultÃ© de l'ia
 Nb de bateau
+Groupe facebook :p  : https://www.facebook.com/groups/316566555197358/
