@@ -58,7 +58,7 @@ public class GameConfigView extends JPanel {
 		
 		JRadioButton rdbtnJoueur = new JRadioButton("2 Joueur");
 		panel_1.add(rdbtnJoueur);
-
+		//test
 	}
 
 }
