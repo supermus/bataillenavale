@@ -1,13 +1,16 @@
 package view;
 
-import javax.swing.JPanel;
-import javax.swing.JButton;
-
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class GridView extends JPanel {
 	
@@ -44,6 +47,8 @@ public class GridView extends JPanel {
 		while(it.hasNext())
 		{
 			JButton btn = it.next();
+			ImageIcon water = new ImageIcon("assets/v_5_5.png");
+			btn.setIcon(water);
 			btn.setPreferredSize(new Dimension(50,50));
 			add(btn);
 		}
