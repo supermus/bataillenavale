@@ -6,15 +6,13 @@ public class Game {
 	
 	private ArrayList<Player> player;
 	private GameMode mode;
-	private Battle battle;
 	private int mapSize;
 
 	
-	public Game(ArrayList<Player> player, GameMode mode, Battle battle, int mapSize)
+	public Game(ArrayList<Player> player, GameMode mode, int mapSize)
 	{
 		this.player = player;
-		this.GameMode = mode;
-		this.battle = battle;
+		this.mode = mode;
 		this.mapSize = mapSize;
 		
 	}
@@ -33,7 +31,7 @@ public class Game {
 	{
 		
 	}
-	public Player getPlayer()
+	public ArrayList<Player> getPlayer()
 	{
 		return player;
 	}
