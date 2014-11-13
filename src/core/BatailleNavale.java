@@ -33,11 +33,13 @@ public class BatailleNavale{
 	
 	public void changeScreen(Controller c)
 	{
-		this.window.removeAll();
+		System.out.println("Nouveau controller : " + c.toString());
+		this.window.getContentPane().removeAll();
 		this.controller = c;
 		this.view = c.getView();
 		this.window.add(view);
 		this.window.setVisible(true);
+		this.window.getContentPane().repaint();
 	}
 
 }
