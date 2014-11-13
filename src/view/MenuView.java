@@ -8,20 +8,21 @@ import java.awt.GridLayout;
 
 public class MenuView extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
+	public JButton btnPlay;
+	public JButton btnQuit;
+	public JButton btnCredits;
+	
 	public MenuView() {
 		setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton btnNewButton_1 = new JButton("Play");
-		add(btnNewButton_1);
+		btnPlay = new JButton("Play");
+		add(btnPlay);
 		
-		JButton btnNewButton_2 = new JButton("Quit");
-		add(btnNewButton_2);
+		btnQuit = new JButton("Quit");
+		add(btnQuit);
 		
-		JButton btnNewButton = new JButton("Credits");
-		add(btnNewButton);
+	    btnCredits = new JButton("Credits");
+		add(btnCredits);
 
 	}
 
