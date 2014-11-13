@@ -21,8 +21,8 @@ public class BatailleNavale{
 	public void init()
 	{
 		System.out.println("Initialisation...");
-		this.controller = new MenuController();
-		this.view = new MenuView();
+		this.controller = new MenuController(this);
+		this.view = controller.getView();
 		this.window = new JFrame();
 		this.window.add(view);
 		this.window.pack();
@@ -31,11 +31,11 @@ public class BatailleNavale{
 		
 	}
 	
-	public void changeScreen(Controller c, JPanel v)
+	public void changeScreen(Controller c)
 	{
 		this.window.removeAll();
 		this.controller = c;
-		this.view = v;
+		this.view = c.getView();
 		this.window.add(view);
 		this.window.setVisible(true);
 	}

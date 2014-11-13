@@ -8,28 +8,26 @@ import view.MenuView;
 
 public class MenuController extends Controller {
 	
-	private MenuView menuView;
 	private BatailleNavale batailleNavale;
 	
-
-	
-	
-	public MenuController()
+	public MenuController(BatailleNavale bn)
 	{
-		menuView = new MenuView();
+		batailleNavale = bn;
+		view = new MenuView(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == menuView.btnPlay){
-			batailleNavale.changeScreen(new GameConfigController(), new GameConfigView());
+		if(e.getSource() == ((MenuView)view).btnPlay){
+			System.out.println("Appel de PLAY");
+			batailleNavale.changeScreen(new GameConfigController());
 			
 		}
-		else if (e.getSource() == menuView.btnQuit){
+		else if (e.getSource() == ((MenuView)view).btnQuit){
 			System.exit(0); 
 		}
-		else if (e.getSource() == menuView.btnCredits){
+		else if (e.getSource() == ((MenuView)view).btnCredits){
 			
 		}
 		
