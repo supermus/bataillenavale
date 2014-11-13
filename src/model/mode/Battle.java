@@ -1,5 +1,8 @@
 package model.mode;
 
+import model.Orientation;
+import model.Player;
+import model.Position;
 import model.ship.AircraftCarrier;
 import model.ship.Ironclad;
 import model.ship.Submarine;
