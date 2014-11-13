@@ -28,7 +28,8 @@ public class MenuController extends Controller {
 			System.exit(0); 
 		}
 		else if (e.getSource() == ((MenuView)view).btnCredits){
-			
+			System.out.println("Appel de About");
+			batailleNavale.changeScreen(new AboutController(batailleNavale));
 		}
 		
 	}
