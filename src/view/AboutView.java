@@ -1,18 +1,25 @@
 package view;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import java.awt.Font;
-import javax.swing.SwingConstants;
+
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+
+import controller.Controller;
 
 public class AboutView extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public AboutView() {
+	private Controller controlleur;
+	
+	public AboutView(Controller control) {
+		this.controlleur = control;
+		
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Version: ");
@@ -43,6 +50,7 @@ public class AboutView extends JPanel {
 		
 		JButton btnNewButton = new JButton("Retour Menu");
 		btnNewButton.setBounds(168, 277, 111, 23);
+		btnNewButton.addActionListener(controlleur);
 		add(btnNewButton);
 
 	}
