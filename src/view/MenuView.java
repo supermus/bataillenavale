@@ -2,26 +2,37 @@ package view;
 
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
+
 import java.awt.BorderLayout;
+
 import javax.swing.JButton;
+
+import controller.Controller;
+
 import java.awt.GridLayout;
 
 public class MenuView extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-	public MenuView() {
+	private Controller controller;
+	public JButton btnPlay;
+	public JButton btnQuit;
+	public JButton btnCredits;
+	
+	public MenuView(Controller controller) {
+		this.controller = controller;
 		setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton btnNewButton_1 = new JButton("Play");
-		add(btnNewButton_1);
+		btnPlay = new JButton("Play");
+		btnPlay.addActionListener(controller);
+		add(btnPlay);
 		
-		JButton btnNewButton_2 = new JButton("Quit");
-		add(btnNewButton_2);
+		btnQuit = new JButton("Quit");
+		btnQuit.addActionListener(controller);
+		add(btnQuit);
 		
-		JButton btnNewButton = new JButton("Credits");
-		add(btnNewButton);
+	    btnCredits = new JButton("Credits");
+	    btnCredits.addActionListener(controller);
+		add(btnCredits);
 
 	}
 

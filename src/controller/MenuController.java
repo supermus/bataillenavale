@@ -2,16 +2,34 @@ package controller;
 
 import java.awt.event.ActionEvent;
 
+import core.BatailleNavale;
+import view.GameConfigView;
+import view.MenuView;
+
 public class MenuController extends Controller {
 	
-	public MenuController()
+	private BatailleNavale batailleNavale;
+	
+	public MenuController(BatailleNavale bn)
 	{
-		
+		batailleNavale = bn;
+		view = new MenuView(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if(e.getSource() == ((MenuView)view).btnPlay){
+			System.out.println("Appel de PLAY");
+			batailleNavale.changeScreen(new GameConfigController());
+			
+		}
+		else if (e.getSource() == ((MenuView)view).btnQuit){
+			System.exit(0); 
+		}
+		else if (e.getSource() == ((MenuView)view).btnCredits){
+			
+		}
 		
 	}
 
