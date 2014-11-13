@@ -23,12 +23,21 @@ public class BatailleNavale{
 		System.out.println("Initialisation...");
 		this.controller = new MenuController();
 		this.view = new MenuView();
+		this.window = new JFrame();
+		this.window.add(view);
+		this.window.pack();
+		this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.window.setVisible(true);
+		
 	}
 	
 	public void changeScreen(Controller c, JPanel v)
 	{
+		this.window.removeAll();
 		this.controller = c;
 		this.view = v;
+		this.window.add(view);
+		this.window.setVisible(true);
 	}
 
 }
