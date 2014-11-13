@@ -27,7 +27,7 @@ public class MenuController extends Controller {
 			
 		}
 		else if (e.getSource() == menuView.btnQuit){
-			
+			System.exit(0); 
 		}
 		else if (e.getSource() == menuView.btnCredits){
 			
