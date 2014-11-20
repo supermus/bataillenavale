@@ -18,7 +18,7 @@ public class Grid {
 		this.missed = new ArrayList<Position>();
 		this.hits = new ArrayList<Position>();
 		this.attacks = new ArrayList<Position>();
-		//test
+		
 	}
 	
 
