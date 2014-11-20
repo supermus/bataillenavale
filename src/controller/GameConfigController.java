@@ -10,9 +10,9 @@ public class GameConfigController extends Controller{
 	private BatailleNavale batailleNavale;
 	
 	
-	public GameConfigController(){
+	public GameConfigController(BatailleNavale bn){
 		  
-		    
+			batailleNavale = bn;
 			view = new GameConfigView();
 		}
 	
@@ -28,6 +28,7 @@ public class GameConfigController extends Controller{
 				System.out.println("Retour au MENU");
 				batailleNavale.changeScreen(new MenuController(batailleNavale));
 			}
+			System.out.println("Aucun passage dans les event");
 			
 		}
 

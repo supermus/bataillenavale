@@ -20,7 +20,7 @@ public class MenuController extends Controller {
 		// TODO Auto-generated method stub
 		if(e.getSource() == ((MenuView)view).btnPlay){
 			System.out.println("Appel de PLAY");
-			batailleNavale.changeScreen(new GameConfigController());
+			batailleNavale.changeScreen(new GameConfigController(batailleNavale));
 			
 		}
 		else if (e.getSource() == ((MenuView)view).btnQuit){
