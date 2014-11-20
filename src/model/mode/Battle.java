@@ -1,5 +1,7 @@
 package model.mode;
 
+import model.*;
+import model.ship.*;
 import model.Orientation;
 import model.Player;
 import model.Position;
@@ -10,21 +12,20 @@ import model.ship.Zodiac;
 
 public  class Battle {
 	
-	
 	//Methode pour placer les navires	
-	public void PlaceShip(Player p, String type, Position position,Orientation orientation){
+	public void PlaceShip(Grid  g, String type, Position position,Orientation orientation){
 		switch (type) {
 		case "Aircraft":
-			p.getShip().add(new AircraftCarrier(position,orientation));
+			g.getShip().add(new AircraftCarrier(position,orientation));
 			break;
 		case "Ironclad":
-			p.getShip().add(new Ironclad(position,orientation));
+			g.getShip().add(new Ironclad(position,orientation));
 			break;
 		case "Submarine":
-			p.getShip().add(new Submarine(position,orientation));
+			g.getShip().add(new Submarine(position,orientation));
 			break;
 		case "Zodiac":
-			p.getShip().add(new Zodiac(position,orientation));
+			g.getShip().add(new Zodiac(position,orientation));
 			break;
 		
 		default:
@@ -32,8 +33,9 @@ public  class Battle {
 		}
 	}
 
+	
 //  Methode pour attaquer
-	public void attack(Player player,Player adversaire,Position position){
+	public void attack(Grid player,Grid adversaire,Position position){
 		//verifie si la case est attaqué 
 		if(!adversaire.isattacked(position)){
 			//s'il n'est pas attaqué il verifie si cette derniere contient un navire 
@@ -46,7 +48,7 @@ public  class Battle {
 					} 
 				}
 				//ajout score
-				player.setScore(10);
+				player.getPlayer().setScore(10);
 			}
 			else{
 				//ajout des coups ratés
@@ -58,6 +60,5 @@ public  class Battle {
 		else{
 			System.out.println("pas d'attaque");
 		}
-	
 	}
 }
