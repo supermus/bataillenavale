@@ -29,22 +29,53 @@ public class GameConfigController extends Controller{
 				speudo =((GameConfigView)view).txtUsername.getText();
 				player = new Human(speudo);
 				
-			//Méthode pour les JRadioButton du mode de jeux
-			if(((GameConfigView)view).rdbtnDemo.isSelected()){
+				//If pour les JRadioButton du mode de jeux
+				if(((GameConfigView)view).rdbtnDemo.isSelected()){
 				
-			}
-			else if(((GameConfigView)view).rdbtn1Joueur.isSelected()){
+				}
+				else if(((GameConfigView)view).rdbtn1Joueur.isSelected()){
 				
-			}
-			else if(((GameConfigView)view).rdbtn2Joueur.isSelected()){
+				}
+				else if(((GameConfigView)view).rdbtn2Joueur.isSelected()){
 				
-			}
+				}
+				
+				//If pour les JRadioButton de la taille de la map
+				if(((GameConfigView)view).rdbtn10.isSelected()){
+					
+				}
+				else if(((GameConfigView)view).rdbtn12.isSelected()){
+					
+				}
+				else if(((GameConfigView)view).rdbtn15.isSelected()){
+	
+				}
+				
+				// If pour les JRadioButton type de bataille
+				if(((GameConfigView)view).rdbtnAlerteRouge.isSelected()){
+					
+				}
+				else if(((GameConfigView)view).rdbtnArtillerie.isSelected()){
+					
+				}
+				else if(((GameConfigView)view).rdbtnBattleship.isSelected()){
+	
+				}
+				
+				if(((GameConfigView)view).rdbtnDifficile.isSelected()){
+					
+				}
+				else if(((GameConfigView)view).rdbtnFacile.isSelected()){
+					
+				}
+				else if(((GameConfigView)view).rdbtnMedium.isSelected()){
+					
+				}
 			
 			
-			
+		
 				
-				
-			}
+				}
 			else if (e.getSource() == ((GameConfigView)view).btnAnnuler){
 				System.out.println("Retour au MENU");
 				batailleNavale.changeScreen(new MenuController(batailleNavale));
