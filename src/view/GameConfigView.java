@@ -1,28 +1,49 @@
 package view;
 
 import javax.swing.JPanel;
+
 import java.awt.FlowLayout;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
 import java.awt.GridLayout;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+
+import controller.Controller;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class GameConfigView extends JPanel {
 	
-	private JTextField txtUsername;
+	public JTextField txtUsername;
 	public JButton btnValider;
 	public JButton btnAnnuler;
+	public JRadioButton rdbtnDemo;
+	public JRadioButton rdbtn1Joueur;
+	public JRadioButton rdbtn2Joueur;
+	private ButtonGroup bg0 = new ButtonGroup();
+	private ButtonGroup bg1 = new ButtonGroup();
+	private ButtonGroup bg2 = new ButtonGroup();
+	private ButtonGroup bg3 = new ButtonGroup();
+	
+	private Controller controlleur;
+	
 	
 
 	/**
 	 * Create the panel.
 	 */
-	public GameConfigView() {
+	public GameConfigView(Controller control) {
+		
+		
+		this.controlleur = control;
 		setLayout(new GridLayout(6, 1, 0, 0));
 		
 		JPanel panel = new JPanel();
@@ -53,21 +74,32 @@ public class GameConfigView extends JPanel {
 		JRadioButton rdbtnArtillerie = new JRadioButton("Artillerie");
 		panel_2.add(rdbtnArtillerie);
 		
+		//Bg3 Choix du type de la bataille
+		bg3.add(rdbtnBattleship);
+		bg3.add(rdbtnAlerteRouge);
+		bg3.add(rdbtnArtillerie);
+		
 		JPanel panel_1 = new JPanel();
 		add(panel_1);
 		
 		JLabel lblTypeDePartie = new JLabel("Type de partie :");
 		panel_1.add(lblTypeDePartie);
+			
 		
-		JRadioButton rdbtnDemo = new JRadioButton("Demo");
+	    rdbtnDemo = new JRadioButton("Demo");
 		rdbtnDemo.setSelected(true);
 		panel_1.add(rdbtnDemo);
 		
-		JRadioButton rdbtnJ = new JRadioButton("1 Joueur");
-		panel_1.add(rdbtnJ);
+	    rdbtn1Joueur = new JRadioButton("1 Joueur");
+		panel_1.add(rdbtn1Joueur);
 		
-		JRadioButton rdbtnJoueur = new JRadioButton("2 Joueur");
-		panel_1.add(rdbtnJoueur);
+		rdbtn2Joueur = new JRadioButton("2 Joueur");
+		panel_1.add(rdbtn2Joueur);
+		
+		//BtnGroup du mode de jeu
+		bg0.add(rdbtnDemo);
+		bg0.add(rdbtn1Joueur);
+		bg0.add(rdbtn2Joueur);
 		
 		JPanel panel_3 = new JPanel();
 		add(panel_3);
@@ -75,14 +107,19 @@ public class GameConfigView extends JPanel {
 		JLabel lblTailleDeLa = new JLabel("Taille de la carte :");
 		panel_3.add(lblTailleDeLa);
 		
-		JRadioButton radioButton = new JRadioButton("10*10");
-		panel_3.add(radioButton);
+		JRadioButton rdbtn10 = new JRadioButton("10*10");
+		panel_3.add(rdbtn10);
 		
-		JRadioButton radioButton_1 = new JRadioButton("12*12");
-		panel_3.add(radioButton_1);
+		JRadioButton rdbtn12 = new JRadioButton("12*12");
+		panel_3.add(rdbtn12);
 		
-		JRadioButton radioButton_2 = new JRadioButton("15*15");
-		panel_3.add(radioButton_2);
+		JRadioButton rdbtn15 = new JRadioButton("15*15");
+		panel_3.add(rdbtn15);
+		
+		//bg1 de la taille de la map
+		bg1.add(rdbtn10);
+		bg1.add(rdbtn12);
+		bg1.add(rdbtn15);
 		
 		JPanel panel_4 = new JPanel();
 		add(panel_4);
@@ -99,6 +136,11 @@ public class GameConfigView extends JPanel {
 		
 		JRadioButton rdbtnDifficile = new JRadioButton("Difficile");
 		panel_4.add(rdbtnDifficile);
+		
+		//bg2 difficulté de la partie
+		bg2.add(rdbtnFacile);
+		bg2.add(rdbtnMedium);
+		bg2.add(rdbtnDifficile);
 		
 		JPanel panel_5 = new JPanel();
 		add(panel_5);
