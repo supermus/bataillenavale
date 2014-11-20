@@ -28,6 +28,15 @@ public class GameConfigView extends JPanel {
 	public JRadioButton rdbtnDemo;
 	public JRadioButton rdbtn1Joueur;
 	public JRadioButton rdbtn2Joueur;
+	public JRadioButton rdbtnBattleship;
+	public JRadioButton rdbtnAlerteRouge;
+	public JRadioButton rdbtnArtillerie;
+	public JRadioButton rdbtn12;
+	public JRadioButton rdbtn10;
+	public JRadioButton rdbtn15;
+	public JRadioButton rdbtnFacile;
+	public JRadioButton rdbtnMedium;
+	public JRadioButton rdbtnDifficile;
 	private ButtonGroup bg0 = new ButtonGroup();
 	private ButtonGroup bg1 = new ButtonGroup();
 	private ButtonGroup bg2 = new ButtonGroup();
@@ -64,14 +73,14 @@ public class GameConfigView extends JPanel {
 		JLabel lblGameMode = new JLabel("Mode de jeu :");
 		panel_2.add(lblGameMode);
 		
-		JRadioButton rdbtnBattleship = new JRadioButton("Bataille Navalle\r\n");
+	    rdbtnBattleship = new JRadioButton("Bataille Navalle\r\n");
 		rdbtnBattleship.setSelected(true);
 		panel_2.add(rdbtnBattleship);
 		
-		JRadioButton rdbtnAlerteRouge = new JRadioButton("Alerte Rouge");
+		rdbtnAlerteRouge = new JRadioButton("Alerte Rouge");
 		panel_2.add(rdbtnAlerteRouge);
 		
-		JRadioButton rdbtnArtillerie = new JRadioButton("Artillerie");
+		rdbtnArtillerie = new JRadioButton("Artillerie");
 		panel_2.add(rdbtnArtillerie);
 		
 		//Bg3 Choix du type de la bataille
@@ -107,13 +116,13 @@ public class GameConfigView extends JPanel {
 		JLabel lblTailleDeLa = new JLabel("Taille de la carte :");
 		panel_3.add(lblTailleDeLa);
 		
-		JRadioButton rdbtn10 = new JRadioButton("10*10");
+		rdbtn10 = new JRadioButton("10*10");
 		panel_3.add(rdbtn10);
 		
-		JRadioButton rdbtn12 = new JRadioButton("12*12");
+	    rdbtn12 = new JRadioButton("12*12");
 		panel_3.add(rdbtn12);
 		
-		JRadioButton rdbtn15 = new JRadioButton("15*15");
+	    rdbtn15 = new JRadioButton("15*15");
 		panel_3.add(rdbtn15);
 		
 		//bg1 de la taille de la map
@@ -127,14 +136,14 @@ public class GameConfigView extends JPanel {
 		JLabel lblDifficultDeLia = new JLabel("Difficult\u00E9 de l'IA :");
 		panel_4.add(lblDifficultDeLia);
 		
-		JRadioButton rdbtnFacile = new JRadioButton("Facile");
+		rdbtnFacile = new JRadioButton("Facile");
 		rdbtnFacile.setSelected(true);
 		panel_4.add(rdbtnFacile);
 		
-		JRadioButton rdbtnMedium = new JRadioButton("Interm\u00E9diaire");
+	    rdbtnMedium = new JRadioButton("Interm\u00E9diaire");
 		panel_4.add(rdbtnMedium);
 		
-		JRadioButton rdbtnDifficile = new JRadioButton("Difficile");
+		rdbtnDifficile = new JRadioButton("Difficile");
 		panel_4.add(rdbtnDifficile);
 		
 		//bg2 difficulté de la partie
