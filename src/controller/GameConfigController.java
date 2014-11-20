@@ -11,9 +11,11 @@ public class GameConfigController extends Controller{
 	
 	
 	public GameConfigController(){
-		
+		  
+		    
 			view = new GameConfigView();
 		}
+	
 
 		@Override
 		public void actionPerformed(ActionEvent e) {

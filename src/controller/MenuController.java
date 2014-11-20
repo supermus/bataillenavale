@@ -3,7 +3,6 @@ package controller;
 import java.awt.event.ActionEvent;
 
 import core.BatailleNavale;
-import view.GameConfigView;
 import view.MenuView;
 
 public class MenuController extends Controller {

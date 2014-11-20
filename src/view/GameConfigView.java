@@ -9,9 +9,15 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GameConfigView extends JPanel {
+	
 	private JTextField txtUsername;
+	public JButton btnValider;
+	public JButton btnAnnuler;
+	
 
 	/**
 	 * Create the panel.
@@ -127,6 +133,19 @@ public class GameConfigView extends JPanel {
 		JSpinner spinner_3 = new JSpinner();
 		spinner_3.setModel(new SpinnerNumberModel(1, 0, 5, 4));
 		panel_5.add(spinner_3);
+		
+		JPanel panel_6 = new JPanel();
+		add(panel_6);
+		
+		btnValider = new JButton("Valider");
+		btnValider.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		panel_6.add(btnValider);
+		
+		btnAnnuler = new JButton("Annuler");
+		panel_6.add(btnAnnuler);
 		//test
 	}
 
