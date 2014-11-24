@@ -29,6 +29,8 @@ public class GameConfigController extends Controller{
 				speudo =((GameConfigView)view).txtUsername.getText();
 				player = new Human(speudo);
 				
+				((GameConfigView)view).bg0.getSelection().
+				
 				//If pour les JRadioButton du mode de jeux
 				if(((GameConfigView)view).rdbtnDemo.isSelected()){
 				

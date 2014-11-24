@@ -37,10 +37,10 @@ public class GameConfigView extends JPanel {
 	public JRadioButton rdbtnFacile;
 	public JRadioButton rdbtnMedium;
 	public JRadioButton rdbtnDifficile;
-	private ButtonGroup bg0 = new ButtonGroup();
-	private ButtonGroup bg1 = new ButtonGroup();
-	private ButtonGroup bg2 = new ButtonGroup();
-	private ButtonGroup bg3 = new ButtonGroup();
+	public ButtonGroup bg0 = new ButtonGroup();
+	public ButtonGroup bg1 = new ButtonGroup();
+	public ButtonGroup bg2 = new ButtonGroup();
+	public ButtonGroup bg3 = new ButtonGroup();
 	
 	private Controller controlleur;
 	
@@ -75,12 +75,15 @@ public class GameConfigView extends JPanel {
 		
 	    rdbtnBattleship = new JRadioButton("Bataille Navalle\r\n");
 		rdbtnBattleship.setSelected(true);
+		rdbtnBattleship.setActionCommand("BatailleNavalle");
 		panel_2.add(rdbtnBattleship);
 		
 		rdbtnAlerteRouge = new JRadioButton("Alerte Rouge");
+		rdbtnAlerteRouge.setActionCommand("AlerteRouge");
 		panel_2.add(rdbtnAlerteRouge);
 		
 		rdbtnArtillerie = new JRadioButton("Artillerie");
+		rdbtnArtillerie.setActionCommand("Artillerie");
 		panel_2.add(rdbtnArtillerie);
 		
 		//Bg3 Choix du type de la bataille
@@ -97,12 +100,15 @@ public class GameConfigView extends JPanel {
 		
 	    rdbtnDemo = new JRadioButton("Demo");
 		rdbtnDemo.setSelected(true);
+		rdbtnDemo.setActionCommand("Demo"); 
 		panel_1.add(rdbtnDemo);
 		
 	    rdbtn1Joueur = new JRadioButton("1 Joueur");
+	    rdbtn1Joueur.setActionCommand("1Joueur");
 		panel_1.add(rdbtn1Joueur);
 		
 		rdbtn2Joueur = new JRadioButton("2 Joueur");
+		rdbtn2Joueur.setActionCommand("2Joueur");
 		panel_1.add(rdbtn2Joueur);
 		
 		//BtnGroup du mode de jeu
@@ -117,12 +123,15 @@ public class GameConfigView extends JPanel {
 		panel_3.add(lblTailleDeLa);
 		
 		rdbtn10 = new JRadioButton("10*10");
+		rdbtn10.setActionCommand("10");
 		panel_3.add(rdbtn10);
 		
 	    rdbtn12 = new JRadioButton("12*12");
+	    rdbtn12.setActionCommand("12");
 		panel_3.add(rdbtn12);
 		
 	    rdbtn15 = new JRadioButton("15*15");
+	    rdbtn15.setActionCommand("15");
 		panel_3.add(rdbtn15);
 		
 		//bg1 de la taille de la map
@@ -138,12 +147,15 @@ public class GameConfigView extends JPanel {
 		
 		rdbtnFacile = new JRadioButton("Facile");
 		rdbtnFacile.setSelected(true);
+		rdbtnFacile.setActionCommand("Facile");
 		panel_4.add(rdbtnFacile);
 		
 	    rdbtnMedium = new JRadioButton("Interm\u00E9diaire");
+	    rdbtnMedium.setActionCommand("Medium");
 		panel_4.add(rdbtnMedium);
 		
 		rdbtnDifficile = new JRadioButton("Difficile");
+		rdbtnDifficile.setActionCommand("Difficile");
 		panel_4.add(rdbtnDifficile);
 		
 		//bg2 difficulté de la partie
