@@ -189,13 +189,11 @@ public class GameConfigView extends JPanel {
 		add(panel_6);
 		
 		btnValider = new JButton("Valider");
-		btnValider.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		btnValider.addActionListener(controlleur);
 		panel_6.add(btnValider);
 		
 		btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addActionListener(controlleur);
 		panel_6.add(btnAnnuler);
 		//test
 	}

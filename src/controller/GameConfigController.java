@@ -62,6 +62,7 @@ public class GameConfigController extends Controller{
 	
 				}
 				
+				//If pour les JRadioButton pour la difficultée
 				if(((GameConfigView)view).rdbtnDifficile.isSelected()){
 					
 				}
