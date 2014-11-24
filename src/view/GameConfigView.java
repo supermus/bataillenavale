@@ -123,6 +123,7 @@ public class GameConfigView extends JPanel {
 		panel_3.add(lblTailleDeLa);
 		
 		rdbtn10 = new JRadioButton("10*10");
+		rdbtn10.setSelected(true);
 		rdbtn10.setActionCommand("10");
 		panel_3.add(rdbtn10);
 		

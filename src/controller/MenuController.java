@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 
 import core.BatailleNavale;
+import view.GameConfigView;
 import view.MenuView;
 
 public class MenuController extends Controller {
@@ -15,7 +16,7 @@ public class MenuController extends Controller {
 		view = new MenuView(this);
 	}
 
-	@Override
+
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource() == ((MenuView)view).btnPlay){

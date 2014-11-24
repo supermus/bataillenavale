@@ -12,6 +12,10 @@ public class GameConfigController extends Controller{
 	private BatailleNavale batailleNavale;
 	private Player player;
 	private String speudo;
+	private String ModeJeux;
+	private String TailleMap;
+	private String Difficulter;
+	private String TypeBataille;
 	
 	
 	public GameConfigController(BatailleNavale bn){
@@ -27,56 +31,24 @@ public class GameConfigController extends Controller{
 			if(e.getSource() == ((GameConfigView)view).btnValider){
 				System.out.println("Début d'une partie");
 				speudo =((GameConfigView)view).txtUsername.getText();
+				System.out.println(speudo);
 				player = new Human(speudo);
 				
-				((GameConfigView)view).bg0.getSelection().
+				// Nombre de joeur de la partie
+				ModeJeux=((GameConfigView)view).bg0.getSelection().getActionCommand();
+				System.out.println(ModeJeux);
 				
-				//If pour les JRadioButton du mode de jeux
-				if(((GameConfigView)view).rdbtnDemo.isSelected()){
+				//Taille de la map
+				TailleMap=((GameConfigView)view).bg1.getSelection().getActionCommand();
+				System.out.println(TailleMap);
 				
-				}
-				else if(((GameConfigView)view).rdbtn1Joueur.isSelected()){
+				//Dificulter de la partie
+				Difficulter=((GameConfigView)view).bg2.getSelection().getActionCommand();
+				System.out.println(Difficulter);
 				
-				}
-				else if(((GameConfigView)view).rdbtn2Joueur.isSelected()){
-				
-				}
-				
-				//If pour les JRadioButton de la taille de la map
-				if(((GameConfigView)view).rdbtn10.isSelected()){
-					
-				}
-				else if(((GameConfigView)view).rdbtn12.isSelected()){
-					
-				}
-				else if(((GameConfigView)view).rdbtn15.isSelected()){
-	
-				}
-				
-				// If pour les JRadioButton type de bataille
-				if(((GameConfigView)view).rdbtnAlerteRouge.isSelected()){
-					
-				}
-				else if(((GameConfigView)view).rdbtnArtillerie.isSelected()){
-					
-				}
-				else if(((GameConfigView)view).rdbtnBattleship.isSelected()){
-	
-				}
-				
-				//If pour les JRadioButton pour la difficultée
-				if(((GameConfigView)view).rdbtnDifficile.isSelected()){
-					
-				}
-				else if(((GameConfigView)view).rdbtnFacile.isSelected()){
-					
-				}
-				else if(((GameConfigView)view).rdbtnMedium.isSelected()){
-					
-				}
-			
-			
-		
+				//Dificulter de la partie
+				Difficulter=((GameConfigView)view).bg3.getSelection().getActionCommand();
+				System.out.println(Difficulter);
 				
 				}
 			else if (e.getSource() == ((GameConfigView)view).btnAnnuler){
