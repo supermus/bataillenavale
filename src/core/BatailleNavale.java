@@ -40,7 +40,6 @@ public class BatailleNavale{
 		this.window.add(view);
 		this.window.setVisible(true);
 		this.window.pack();
-		this.window.getContentPane().repaint();
 	}
 
 }
