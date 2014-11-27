@@ -39,6 +39,7 @@ public class BatailleNavale{
 		this.view = c.getView();
 		this.window.add(view);
 		this.window.setVisible(true);
+		this.window.pack();
 		this.window.getContentPane().repaint();
 	}
 
