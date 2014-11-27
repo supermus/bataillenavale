@@ -37,6 +37,10 @@ public class GameConfigView extends JPanel {
 	public JRadioButton rdbtnFacile;
 	public JRadioButton rdbtnMedium;
 	public JRadioButton rdbtnDifficile;
+	public JSpinner spinnerPorteAvion;
+	public JSpinner spinnerSousMarin;
+	public JSpinner spinnerCuirassésFurtif;
+	public JSpinner spinnerZodiac;
 	public ButtonGroup bg0 = new ButtonGroup();
 	public ButtonGroup bg1 = new ButtonGroup();
 	public ButtonGroup bg2 = new ButtonGroup();
@@ -173,30 +177,30 @@ public class GameConfigView extends JPanel {
 		JLabel lblPorteAvion = new JLabel("Porte avion");
 		panel_5.add(lblPorteAvion);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setModel(new SpinnerNumberModel(1, 0, 5, 4));
-		panel_5.add(spinner);
+	    spinnerPorteAvion = new JSpinner();
+		spinnerPorteAvion.setModel(new SpinnerNumberModel(1, 0, 5, 1));
+		panel_5.add(spinnerPorteAvion);
 		
 		JLabel lblNewLabel_1 = new JLabel("Sous-Marin");
 		panel_5.add(lblNewLabel_1);
 		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setModel(new SpinnerNumberModel(1, 0, 5, 4));
-		panel_5.add(spinner_1);
+	    spinnerSousMarin = new JSpinner();
+		spinnerSousMarin.setModel(new SpinnerNumberModel(1, 0, 5, 1));
+		panel_5.add(spinnerSousMarin);
 		
 		JLabel lblNewLabel_2 = new JLabel("Cuirass\u00E9s furtif");
 		panel_5.add(lblNewLabel_2);
 		
-		JSpinner spinner_2 = new JSpinner();
-		spinner_2.setModel(new SpinnerNumberModel(2, 0, 5, 4));
-		panel_5.add(spinner_2);
+		spinnerCuirassésFurtif = new JSpinner();
+		spinnerCuirassésFurtif.setModel(new SpinnerNumberModel(2, 0, 5, 1));
+		panel_5.add(spinnerCuirassésFurtif);
 		
 		JLabel lblNewLabel_3 = new JLabel("Zodiac");
 		panel_5.add(lblNewLabel_3);
 		
-		JSpinner spinner_3 = new JSpinner();
-		spinner_3.setModel(new SpinnerNumberModel(1, 0, 5, 4));
-		panel_5.add(spinner_3);
+		spinnerZodiac = new JSpinner();
+		spinnerZodiac.setModel(new SpinnerNumberModel(1, 0, 5, 1));
+		panel_5.add(spinnerZodiac);
 		
 		JPanel panel_6 = new JPanel();
 		add(panel_6);

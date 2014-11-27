@@ -16,6 +16,10 @@ public class GameConfigController extends Controller{
 	private String TailleMap;
 	private String Difficulter;
 	private String TypeBataille;
+	private int nbSousMarin;
+	private int nbPorteAvion;
+	private int nbCuirassésFurtif;
+	private int nbZodiac;
 	
 	
 	public GameConfigController(BatailleNavale bn){
@@ -50,12 +54,21 @@ public class GameConfigController extends Controller{
 				Difficulter=((GameConfigView)view).bg3.getSelection().getActionCommand();
 				System.out.println(Difficulter);
 				
+				// Récupération des spinner
+				nbSousMarin = (Integer) ((GameConfigView)view).spinnerSousMarin.getValue();
+				System.out.println("Nombre de Sous-Marin : "+nbSousMarin);
+				nbPorteAvion = (Integer) ((GameConfigView)view).spinnerPorteAvion.getValue();
+				System.out.println("Nombre de porte Avion :" +nbPorteAvion);
+				nbCuirassésFurtif = (Integer) ((GameConfigView)view).spinnerCuirassésFurtif.getValue();
+				System.out.println("Nombre de Cuirassés Furtif : "+nbCuirassésFurtif);
+				nbZodiac = (Integer) ((GameConfigView)view).spinnerZodiac.getValue();
+				System.out.println("Nombre de Zodiac : "+nbZodiac);
+				
 				}
 			else if (e.getSource() == ((GameConfigView)view).btnAnnuler){
 				System.out.println("Retour au MENU");
 				batailleNavale.changeScreen(new MenuController(batailleNavale));
 			}
-			System.out.println("Aucun passage dans les event");
 			
 		}
 
