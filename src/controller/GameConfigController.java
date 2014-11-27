@@ -1,7 +1,10 @@
 package controller;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
+import model.Computer;
+import model.Game;
 import model.Human;
 import model.Player;
 import core.BatailleNavale;
@@ -10,10 +13,12 @@ import view.GameConfigView;
 public class GameConfigController extends Controller{
 
 	private BatailleNavale batailleNavale;
-	private Player player;
+	private ArrayList<Player> player;
+	private Game game;
+	private Computer com;
 	private String speudo;
 	private String ModeJeux;
-	private String TailleMap;
+	private int TailleMap;
 	private String Difficulter;
 	private String TypeBataille;
 	private int nbSousMarin;
@@ -36,14 +41,16 @@ public class GameConfigController extends Controller{
 				System.out.println("Début d'une partie");
 				speudo =((GameConfigView)view).txtUsername.getText();
 				System.out.println(speudo);
-				player = new Human(speudo);
+		
+				//player = new Human(speudo);
+				
 				
 				// Nombre de joeur de la partie
 				ModeJeux=((GameConfigView)view).bg0.getSelection().getActionCommand();
 				System.out.println(ModeJeux);
 				
 				//Taille de la map
-				TailleMap=((GameConfigView)view).bg1.getSelection().getActionCommand();
+				TailleMap=Integer.parseInt(((GameConfigView)view).bg1.getSelection().getActionCommand());
 				System.out.println(TailleMap);
 				
 				//Dificulter de la partie
@@ -51,8 +58,8 @@ public class GameConfigController extends Controller{
 				System.out.println(Difficulter);
 				
 				//Dificulter de la partie
-				Difficulter=((GameConfigView)view).bg3.getSelection().getActionCommand();
-				System.out.println(Difficulter);
+				TypeBataille=((GameConfigView)view).bg3.getSelection().getActionCommand();
+				System.out.println(TypeBataille);
 				
 				// Récupération des spinner
 				nbSousMarin = (Integer) ((GameConfigView)view).spinnerSousMarin.getValue();
@@ -63,6 +70,13 @@ public class GameConfigController extends Controller{
 				System.out.println("Nombre de Cuirassés Furtif : "+nbCuirassésFurtif);
 				nbZodiac = (Integer) ((GameConfigView)view).spinnerZodiac.getValue();
 				System.out.println("Nombre de Zodiac : "+nbZodiac);
+				
+				if(ModeJeux == "Demo"){
+					player.add(new Computer("Computer1"));
+					player.add(new Computer("Computer2"));
+					game = new Game(player,TypeBataille,TailleMap);
+					
+				}
 				
 				}
 			else if (e.getSource() == ((GameConfigView)view).btnAnnuler){
