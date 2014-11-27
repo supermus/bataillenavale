@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import model.Computer;
 import model.Game;
+import model.GameMode;
 import model.Human;
 import model.Player;
 import core.BatailleNavale;
@@ -14,6 +15,7 @@ public class GameConfigController extends Controller{
 
 	private BatailleNavale batailleNavale;
 	private ArrayList<Player> player;
+	private GameMode gameMode;
 	private Game game;
 	private Computer com;
 	private String speudo;
@@ -74,7 +76,8 @@ public class GameConfigController extends Controller{
 				if(ModeJeux == "Demo"){
 					player.add(new Computer("Computer1"));
 					player.add(new Computer("Computer2"));
-					game = new Game(player,TypeBataille,TailleMap);
+				    gameMode = (GameMode) (Object)TypeBataille;
+					game = new Game(player,gameMode,TailleMap);
 					
 				}
 				
