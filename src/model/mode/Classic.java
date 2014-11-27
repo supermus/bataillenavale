@@ -1,5 +1,7 @@
 package model.mode;
 
-public class Classic {
+import model.GameMode;
+
+public class Classic extends GameMode {
 
 }

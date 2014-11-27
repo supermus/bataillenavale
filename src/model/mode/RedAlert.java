@@ -1,5 +1,7 @@
 package model.mode;
 
-public class RedAlert {
+import model.GameMode;
+
+public class RedAlert extends GameMode {
 
 }

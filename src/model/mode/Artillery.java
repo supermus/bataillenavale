@@ -1,5 +1,7 @@
 package model.mode;
 
-public class Artillery {
+import model.GameMode;
+
+public class Artillery extends GameMode{
 
 }

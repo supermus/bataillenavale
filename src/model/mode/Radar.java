@@ -1,5 +1,7 @@
 package model.mode;
 
-public class Radar {
+import model.GameMode;
+
+public class Radar extends GameMode {
 
 }
