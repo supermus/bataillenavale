@@ -52,6 +52,11 @@ public class Grid {
 				}
 			return isattacked;
 			}
+		public int getSize() {
+			return size;
+		}
+
+
 		public void addMissed(Position miss) {
 			this.missed.add(miss);
 		}

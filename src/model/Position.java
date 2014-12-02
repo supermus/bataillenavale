@@ -10,6 +10,10 @@ public class Position {
 		this.y = y;
 		// classe Position
 	}
+	public Position()
+	{
+		
+	}
 
 	public int getX() {
 		return x;
@@ -31,5 +35,10 @@ public class Position {
 	public String toString() {
 		return "Position [x=" + x + ", y=" + y + "]";
 	}
-
+	public Position toPosition(String po){
+		int x=Integer.parseInt(po.substring(12, po.indexOf(", y=")));
+		int y=Integer.parseInt(po.substring(po.indexOf("y=")+2,po.indexOf("]")));
+		Position position=new Position(x, y);
+		return position;
+	}
 }
