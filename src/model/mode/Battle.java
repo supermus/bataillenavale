@@ -1,18 +1,18 @@
 package model.mode;
 
-import model.*;
-import model.ship.*;
+import java.util.Observable;
+
+import model.Grid;
 import model.Orientation;
-import model.Player;
 import model.Position;
 import model.ship.AircraftCarrier;
 import model.ship.Ironclad;
 import model.ship.Submarine;
 import model.ship.Zodiac;
 
-public  class Battle {
-	
-	//Methode pour placer les navires	
+public class Battle extends Observable {
+
+	//Methode pour placer les navires
 	public void PlaceShip(Grid  g, String type, Position position,Orientation orientation){
 		switch (type) {
 		case "Aircraft":
@@ -27,25 +27,25 @@ public  class Battle {
 		case "Zodiac":
 			g.getShip().add(new Zodiac(position,orientation));
 			break;
-		
+
 		default:
 			break;
 		}
 	}
 
-	
-//  Methode pour attaquer
+
+	//  Methode pour attaquer
 	public void attack(Grid player,Grid adversaire,Position position){
-		//verifie si la case est attaqué 
+		//verifie si la case est attaqué
 		if(!adversaire.isattacked(position)){
-			//s'il n'est pas attaqué il verifie si cette derniere contient un navire 
+			//s'il n'est pas attaqué il verifie si cette derniere contient un navire
 			if(adversaire.isship(position)){
 				adversaire.addhits(position);
 				//change etat de la case du navire de l'adversaire
 				for (int i = 0; i < adversaire.getShip().size(); i++) {
 					if(adversaire.getShip().get(i).getState().containsKey(position.toString())){
 						adversaire.getShip().get(i).setStates(position);
-					} 
+					}
 				}
 				//ajout score
 				player.getPlayer().setScore(10);
