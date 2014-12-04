@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 
 import view.GameConfigView;
+import view.GameContainerView;
 import core.BatailleNavale;
 
 public class GameController extends  Controller {
@@ -12,7 +13,7 @@ public class GameController extends  Controller {
 	public GameController(BatailleNavale bn){
 		  
 		batailleNavale = bn;
-		view = new GameConfigView(this);
+		view = new GameContainerView(this);
 	}
 
 	@Override

@@ -7,7 +7,11 @@ import model.Computer;
 import model.Game;
 import model.GameMode;
 import model.Human;
+import model.Orientation;
 import model.Player;
+import model.Position;
+import model.ship.AircraftCarrier;
+import model.ship.Ship;
 import core.BatailleNavale;
 import view.GameConfigView;
 
@@ -72,21 +76,21 @@ public class GameConfigController extends Controller{
 				System.out.println("Nombre de Cuirassés Furtif : "+nbCuirassésFurtif);
 				nbZodiac = (Integer) ((GameConfigView)view).spinnerZodiac.getValue();
 				System.out.println("Nombre de Zodiac : "+nbZodiac);
-			
+				gameMode = (GameMode) (Object)TypeBataille;
+				
 				switch (ModeJeux){
 				case "Demo" : player.add(new Computer("Computer1"));
 							  player.add(new Computer("Computer2"));
-							  gameMode = (GameMode) (Object)TypeBataille;
-							  game = new Game(player,gameMode,TailleMap);
+							  game = new Game(player,gameMode,TailleMap,nbSousMarin,nbPorteAvion,nbCuirassésFurtif,nbZodiac);
 							  break;
 				
 				case "1 Joueur" : player.add(new Computer("Computer1"));
 				  				  player.add(new Human(speudo));
-				  				  gameMode = (GameMode) (Object)TypeBataille;
-				  				  game = new Game(player,gameMode,TailleMap);
+				  				  game = new Game(player,gameMode,TailleMap,nbSousMarin,nbPorteAvion,nbCuirassésFurtif,nbZodiac);
 				  				  break;
 				}
-				batailleNavale.changeScreen(new MenuController(batailleNavale));
+				
+				batailleNavale.changeScreen(new GameController(batailleNavale));
 //				if(ModeJeux == "Demo"){
 //					player.add(new Computer("Computer1"));
 //					player.add(new Computer("Computer2"));

@@ -13,6 +13,7 @@ public abstract class Ship {
 	private Orientation orientation; // orientation du navire top right bot left
 	private HashMap<String, Boolean> state; //Position(String)  et l'etat(Boolean true=pas touché false=touché) de chaque case du navire 
 	
+
 	public Ship(String name, Position origin, int size, Orientation orientation)
 	{
 		this.name = name;
@@ -91,6 +92,9 @@ public abstract class Ship {
 				alive++;
 		return (alive != 0);
 	}
+
+
+	
 	
 	
 
