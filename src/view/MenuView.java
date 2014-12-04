@@ -8,17 +8,17 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 
 import controller.AbstractController;
+import controller.MenuController;
 
 import java.awt.GridLayout;
 
 public class MenuView extends AbstractView {
 
-	private AbstractController controller;
 	public JButton btnPlay;
 	public JButton btnQuit;
 	public JButton btnCredits;
 	
-	public MenuView(AbstractController controller) {
+	public MenuView(MenuController controller) {
 		this.controller = controller;
 		setLayout(new GridLayout(0, 1, 0, 0));
 		

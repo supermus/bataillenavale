@@ -12,6 +12,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import controller.GameController;
+
 public class GameContainerView extends AbstractView {
 
 	GridView leftGrid;
@@ -36,7 +38,8 @@ public class GameContainerView extends AbstractView {
 	private JList listBoat;
 	private JButton buttonPlaceBoat;
 
-	public GameContainerView() {
+	public GameContainerView(GameController c) {
+		this.controller = c;
 		setPreferredSize(new Dimension(1024, 720));
 		setLayout(null);
 

@@ -6,7 +6,7 @@ import controller.AbstractController;
 
 public class AbstractView extends JPanel {
 
-	private AbstractController controller;
+	protected AbstractController controller;
 	
 	public void setController(AbstractController c)
 	{

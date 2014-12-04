@@ -48,8 +48,6 @@ public class GameConfigView extends AbstractView {
 	public ButtonGroup bg2 = new ButtonGroup();
 	public ButtonGroup bg3 = new ButtonGroup();
 	
-	private GameConfigController controlleur;
-	
 	
 
 	/**
@@ -58,7 +56,7 @@ public class GameConfigView extends AbstractView {
 	public GameConfigView(GameConfigController control) {
 		
 		
-		this.controlleur = control;
+		this.controller = control;
 		setLayout(new GridLayout(6, 1, 0, 0));
 		
 		JPanel panel = new JPanel();
@@ -209,11 +207,11 @@ public class GameConfigView extends AbstractView {
 		add(panel_6);
 		
 		btnValider = new JButton("Valider");
-		btnValider.addActionListener(controlleur);
+		btnValider.addActionListener(controller);
 		panel_6.add(btnValider);
 		
 		btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(controlleur);
+		btnAnnuler.addActionListener(controller);
 		panel_6.add(btnAnnuler);
 		//test
 	}
