@@ -4,13 +4,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import view.MenuView;
-import controller.Controller;
+import controller.AbstractController;
 import controller.MenuController;
 
 public class BatailleNavale{
 	
 	private JFrame window;
-	private Controller controller;
+	private AbstractController controller;
 	private JPanel view;
 	
 	public BatailleNavale()
@@ -31,7 +31,7 @@ public class BatailleNavale{
 		
 	}
 	
-	public void changeScreen(Controller c)
+	public void changeScreen(AbstractController c)
 	{
 		System.out.println("Nouveau controller : " + c.toString());
 		this.window.getContentPane().removeAll();

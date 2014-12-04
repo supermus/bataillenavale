@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-public abstract class Controller implements ActionListener {
+public abstract class AbstractController implements ActionListener {
 
 	protected JPanel view;
 	

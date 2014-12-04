@@ -12,7 +12,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class GameContainerView extends JPanel {
+public class GameContainerView extends AbstractView {
 
 	GridView leftGrid;
 	GridView rightGrid;
@@ -50,11 +50,11 @@ public class GameContainerView extends JPanel {
 		menuButtonQuit = new JMenuItem("Quitter");
 		gameMenu.add(menuButtonQuit);
 
-		leftGrid = new GridView(10, true);
+		leftGrid = new GridView(10, true, false);
 		leftGrid.setBounds(42, 75, 400, 400);
 
 		add(leftGrid);
-		rightGrid = new GridView(10, true);
+		rightGrid = new GridView(10, true, false);
 		rightGrid.setBounds(582, 75, 400, 400);
 		add(rightGrid);
 
@@ -90,7 +90,7 @@ public class GameContainerView extends JPanel {
 		add(labelShotLeft);
 
 		labelShotValueLeft = new JLabel("0 (dont 0 rat\u00E9s)");
-		labelShotValueLeft.setBounds(100, 486, 89, 14);
+		labelShotValueLeft.setBounds(100, 486, 141, 14);
 		add(labelShotValueLeft);
 
 		labelScoreLeft = new JLabel("Score :");
@@ -99,7 +99,7 @@ public class GameContainerView extends JPanel {
 		add(labelScoreLeft);
 
 		labelScoreValueLeft = new JLabel("0");
-		labelScoreValueLeft.setBounds(100, 511, 89, 14);
+		labelScoreValueLeft.setBounds(100, 511, 153, 14);
 		add(labelScoreValueLeft);
 
 		labelShotRight = new JLabel("Tirs :");
@@ -113,11 +113,11 @@ public class GameContainerView extends JPanel {
 		add(labelScoreRight);
 
 		labelScoreValueRight = new JLabel("0");
-		labelScoreValueRight.setBounds(640, 511, 89, 14);
+		labelScoreValueRight.setBounds(640, 511, 168, 14);
 		add(labelScoreValueRight);
 
 		labelShotValueRight = new JLabel("0 (dont 0 rat\u00E9s)");
-		labelShotValueRight.setBounds(640, 486, 89, 14);
+		labelShotValueRight.setBounds(640, 486, 161, 14);
 		add(labelShotValueRight);
 
 		labelBoats = new JLabel("Bateaux :");

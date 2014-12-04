@@ -15,12 +15,14 @@ import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
-import controller.Controller;
+
+
+import controller.GameConfigController;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GameConfigView extends JPanel {
+public class GameConfigView extends AbstractView {
 	
 	public JTextField txtUsername;
 	public JButton btnValider;
@@ -46,14 +48,14 @@ public class GameConfigView extends JPanel {
 	public ButtonGroup bg2 = new ButtonGroup();
 	public ButtonGroup bg3 = new ButtonGroup();
 	
-	private Controller controlleur;
+	private GameConfigController controlleur;
 	
 	
 
 	/**
 	 * Create the panel.
 	 */
-	public GameConfigView(Controller control) {
+	public GameConfigView(GameConfigController control) {
 		
 		
 		this.controlleur = control;

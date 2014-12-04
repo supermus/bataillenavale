@@ -6,7 +6,7 @@ import core.BatailleNavale;
 import view.GameConfigView;
 import view.MenuView;
 
-public class MenuController extends Controller {
+public class MenuController extends AbstractController {
 	
 	private BatailleNavale batailleNavale;
 	

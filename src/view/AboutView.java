@@ -9,17 +9,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-import controller.Controller;
+import controller.AbstractController;
 import core.Const;
 
-public class AboutView extends JPanel {
+public class AboutView extends AbstractView {
 
 	/**
 	 * Create the panel.
 	 */
-	private Controller controlleur;
+	private AbstractController controlleur;
 	
-	public AboutView(Controller control) {
+	public AboutView(AbstractController control) {
 		this.controlleur = control;
 		setLayout(null);
 		this.setPreferredSize(new Dimension(447, 308));

@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import view.AboutView;
 import core.BatailleNavale;
 
-public class AboutController extends Controller {
+public class AboutController extends AbstractController {
 	private BatailleNavale batailleNavale;
 	
 	public AboutController(BatailleNavale bn)

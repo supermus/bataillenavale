@@ -15,7 +15,7 @@ import model.ship.Ship;
 import core.BatailleNavale;
 import view.GameConfigView;
 
-public class GameConfigController extends Controller{
+public class GameConfigController extends AbstractController{
 
 	private BatailleNavale batailleNavale;
 	private ArrayList<Player> player;

@@ -3,23 +3,32 @@ package view;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class GridView extends JPanel {
+public class GridView extends AbstractView implements Observer, MouseListener {
 	
-	private ArrayList<JButton> cells;
+	private JLabel[][] cells;
+	private boolean isHuman;
 
 	/**
 	 * Create the panel.
 	 */
 	public GridView() {
+		isHuman = false;
 		setLayout(new GridLayout(2, 2, 0, 0));
 		
 		JButton btnNewButton_1 = new JButton();
@@ -36,22 +45,75 @@ public class GridView extends JPanel {
 		
 	}
 	
-	public GridView(int mapSize, boolean showShips) {
+	public GridView(int mapSize, boolean showShips, boolean isHuman) {
+		this.isHuman = isHuman;
 		setLayout(new GridLayout(mapSize, mapSize, 0, 0));
-		cells = new ArrayList<JButton>();
+		cells = new JLabel[mapSize][mapSize];
 		for(int i = 0; i<mapSize; i++)
 			for(int j = 0; j<mapSize; j++)
-				cells.add(new JButton((i+1)+";"+(j+1)));
+			{
+				Image newimg = new ImageIcon("assets/v_5_5.png").getImage().getScaledInstance((int)(400/mapSize), (int)(400/mapSize),  java.awt.Image.SCALE_SMOOTH);  
+
+
+				JLabel btn = new JLabel( new ImageIcon(newimg) );
+				
+				/*ImageIcon water = new ImageIcon("assets/v_5_5.png");
+				btn.setIcon(water);
+				btn.setPreferredSize(new Dimension(50,50));*/
+				cells[i][j] = btn;
+				btn.addMouseListener(this);
+				add(btn);
+			}
 		
-		Iterator<JButton> it = cells.iterator();
-		while(it.hasNext())
-		{
-			JButton btn = it.next();
-			ImageIcon water = new ImageIcon("assets/v_5_5.png");
-			btn.setIcon(water);
-			btn.setPreferredSize(new Dimension(50,50));
-			add(btn);
-		}
+		Image newimg = new ImageIcon("assets/h_2_1.png").getImage().getScaledInstance((int)(400/mapSize), (int)(400/mapSize),  java.awt.Image.SCALE_SMOOTH);
+		cells[0][0].setIcon(new ImageIcon(newimg));
+		
+		Image newimg2 = new ImageIcon("assets/h_2_2.png").getImage().getScaledInstance((int)(400/mapSize), (int)(400/mapSize),  java.awt.Image.SCALE_SMOOTH);
+		cells[0][1].setIcon(new ImageIcon(newimg2));
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public boolean isHuman()
+	{
+		return isHuman;
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		if(!isHuman)
+			
+		// TODO Auto-generated method stub
+		System.out.println(arg0.getSource().toString());
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
