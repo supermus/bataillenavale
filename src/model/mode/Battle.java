@@ -43,4 +43,25 @@ public  class Battle {
 		}
 	}
 
+	
+	public ArrayList<Integer> getNumbers(Grid g, int y) {
+		for (int i = 0; i < g.getSize(); i++) {
+			if(!g.isattacked(new Position(i, y))){
+			numbers.add(i);
+			}
+		}
+		return numbers;
+	}
+	
+	public int getresult(ArrayList<Integer> numbers){
+		
+		return numbers.get(2).intValue();	
+	}
+	
+	public int distance(Position pos1,Position pos2){
+		int x=Math.abs(pos1.getX()-pos2.getX());
+		int y=Math.abs(pos1.getY()-pos2.getY());
+	return Math.max(x, y);
+	
+}
 }

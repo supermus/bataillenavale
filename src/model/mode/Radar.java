@@ -50,11 +50,6 @@ public class Radar extends Battle {
 		}
 	}
 	
-	public int distance(Position pos1,Position pos2){
-			int x=Math.abs(pos1.getX()-pos2.getX());
-			int y=Math.abs(pos1.getY()-pos2.getY());
-		return Math.max(x, y);
-		
-	}
+	
 
 }

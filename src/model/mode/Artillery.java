@@ -32,19 +32,9 @@ public class Artillery extends Battle{
 		}
 	}
 
-	public ArrayList<Integer> getNumbers(Grid g, int y) {
-		for (int i = 0; i < g.getSize(); i++) {
-			if(!g.isattacked(new Position(i, y))){
-			numbers.add(i);
-			}
-		}
-		return numbers;
-	}
+
 	
-	public int getresult(ArrayList<Integer> numbers){
-		
-		return numbers.get(2).intValue();	
-	}
+
 	
 	
 }
