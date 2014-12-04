@@ -17,7 +17,6 @@ public class AboutView extends AbstractView {
 	/**
 	 * Create the panel.
 	 */
-	private AbstractController controlleur;
 	
 	public AboutView(AbstractController c) {
 		super(c);
@@ -53,7 +52,7 @@ public class AboutView extends AbstractView {
 		
 		JButton btnNewButton = new JButton("Retour Menu");
 		btnNewButton.setBounds(168, 277, 111, 23);
-		btnNewButton.addActionListener(controlleur);
+		btnNewButton.addActionListener(c);
 		add(btnNewButton);
 
 	}
