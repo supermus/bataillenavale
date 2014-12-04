@@ -12,21 +12,18 @@ public class BatailleNavale{
 	private static JFrame window;
 	private static AbstractController controller;
 	
-	public BatailleNavale()
+	public static void main(String[] args)
 	{
-		System.out.println("Creation de batailleNavale");
-	}
-	
-	public static void init()
-	{
+		// initialisation de la fenêtre
 		System.out.println("Initialisation...");
-		controller = new MenuController();
 		window = new JFrame();
-		window.add(controller.getView());
-		window.pack();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);
 		
+		// chargement du menu
+		controller = new MenuController();
+		window.add(controller.getView());
+		window.pack();
 	}
 	
 	public static void changeScreen(AbstractController c)
