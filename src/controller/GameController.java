@@ -2,14 +2,17 @@ package controller;
 
 import java.awt.event.ActionEvent;
 
-import view.GameConfigView;
+import model.Game;
 import view.GameContainerView;
-import core.BatailleNavale;
 
 public class GameController extends AbstractController {
 	
-	public GameController(){
-	view = new GameContainerView(this);
+	Game game;
+	
+	public GameController(Game g){
+		this.game = g;
+		this.view = new GameContainerView(this);
+		((GameContainerView)this.view).setModel(this.game);
 	}
 
 	@Override

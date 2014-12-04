@@ -93,7 +93,7 @@ public class GameConfigController extends AbstractController{
 				  				  break;
 				}
 				
-				BatailleNavale.changeScreen(new GameController());
+				BatailleNavale.changeScreen(new GameController(game));
 //				if(ModeJeux == "Demo"){
 //					player.add(new Computer("Computer1"));
 //					player.add(new Computer("Computer2"));
