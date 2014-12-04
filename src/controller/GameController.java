@@ -13,7 +13,7 @@ public class GameController extends AbstractController {
 	public GameController(BatailleNavale bn){
 		  
 		batailleNavale = bn;
-		//view = new GameContainerView(this);
+		view = new GameContainerView(this);
 	}
 
 	@Override
