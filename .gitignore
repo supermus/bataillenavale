@@ -16,3 +16,6 @@ hs_err_pid*
 .classpath
 .settings/
 bin/
+
+# Windows thumbnails
+Thumbs.db
