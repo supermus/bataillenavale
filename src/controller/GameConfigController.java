@@ -5,19 +5,19 @@ import java.util.ArrayList;
 
 import model.Computer;
 import model.Game;
-import model.GameMode;
 import model.Human;
-import model.Orientation;
 import model.Player;
-import model.Position;
-import model.ship.AircraftCarrier;
-import model.ship.Ship;
-import core.BatailleNavale;
+import model.mode.Artillery;
+import model.mode.Battle;
+import model.mode.Classic;
+import model.mode.Radar;
+import model.mode.RedAlert;
 import view.GameConfigView;
+import core.BatailleNavale;
 
 public class GameConfigController extends AbstractController{
 	private ArrayList<Player> player;
-	private GameMode gameMode;
+	private Battle gameMode;
 	private Game game;
 	private Computer com;
 	private String speudo;
@@ -72,7 +72,14 @@ public class GameConfigController extends AbstractController{
 				System.out.println("Nombre de Cuirassés Furtif : "+nbCuirassésFurtif);
 				nbZodiac = (Integer) ((GameConfigView)view).spinnerZodiac.getValue();
 				System.out.println("Nombre de Zodiac : "+nbZodiac);
-				gameMode = (GameMode) (Object)TypeBataille;
+				if(TypeBataille.equals("BatailleNavalle"))
+					gameMode = new Classic();
+				if(TypeBataille.equals("AlerteRouge"))
+					gameMode = new RedAlert();
+				if(TypeBataille.equals("Artillerie"))
+					gameMode = new Artillery();
+				if(TypeBataille.equals("Radar"))
+					gameMode = new Radar();
 				
 				switch (ModeJeux){
 				case "Demo" : player.add(new Computer("Computer1"));

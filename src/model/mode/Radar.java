@@ -1,8 +1,6 @@
 package model.mode;
 
 import java.util.Map.Entry;
-
-import model.GameMode;
 import model.Grid;
 import model.Position;
 

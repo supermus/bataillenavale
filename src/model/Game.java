@@ -2,10 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
+import model.mode.Battle;
+
 public class Game {
 	
 	private ArrayList<Player> player;
-	private GameMode mode;
+	private Battle mode;
 	private int mapSize;
 	private int nbSousMarin;
 	private int nbPorteAvion;
@@ -13,7 +15,7 @@ public class Game {
 	private int nbZodiac;
 
 	
-	public Game(ArrayList<Player> player, GameMode mode, int mapSize,int nbSousMarin,int nbPorteAvion, int nbCuirassésFurtif, int nbZodiac  )
+	public Game(ArrayList<Player> player, Battle mode, int mapSize,int nbSousMarin,int nbPorteAvion, int nbCuirassésFurtif, int nbZodiac  )
 	{
 		this.player = player;
 		this.mode = mode;
