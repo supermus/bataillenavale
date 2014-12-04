@@ -39,7 +39,7 @@ public class GameContainerView extends AbstractView {
 	private JButton buttonPlaceBoat;
 
 	public GameContainerView(GameController c) {
-		this.controller = c;
+		super(c);
 		setPreferredSize(new Dimension(1024, 720));
 		setLayout(null);
 
@@ -53,11 +53,11 @@ public class GameContainerView extends AbstractView {
 		menuButtonQuit = new JMenuItem("Quitter");
 		gameMenu.add(menuButtonQuit);
 
-		leftGrid = new GridView(10, true, false);
+		leftGrid = new GridView((GameController)controller, 10, true, false);
 		leftGrid.setBounds(42, 75, 400, 400);
 
 		add(leftGrid);
-		rightGrid = new GridView(10, true, false);
+		rightGrid = new GridView((GameController)controller, 10, true, false);
 		rightGrid.setBounds(582, 75, 400, 400);
 		add(rightGrid);
 

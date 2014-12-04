@@ -19,8 +19,8 @@ public class AboutView extends AbstractView {
 	 */
 	private AbstractController controlleur;
 	
-	public AboutView(AbstractController control) {
-		this.controlleur = control;
+	public AboutView(AbstractController c) {
+		super(c);
 		setLayout(null);
 		this.setPreferredSize(new Dimension(447, 308));
 	

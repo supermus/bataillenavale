@@ -1,23 +1,17 @@
 package view;
 
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+
+import controller.GameController;
 
 public class GridView extends AbstractView implements Observer, MouseListener {
 	
@@ -27,7 +21,8 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 	/**
 	 * Create the panel.
 	 */
-	public GridView() {
+	public GridView(GameController c) {
+		super(c);
 		isHuman = false;
 		setLayout(new GridLayout(2, 2, 0, 0));
 		
@@ -45,7 +40,8 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 		
 	}
 	
-	public GridView(int mapSize, boolean showShips, boolean isHuman) {
+	public GridView(GameController c, int mapSize, boolean showShips, boolean isHuman) {
+		super(c);
 		this.isHuman = isHuman;
 		setLayout(new GridLayout(mapSize, mapSize, 0, 0));
 		cells = new JLabel[mapSize][mapSize];

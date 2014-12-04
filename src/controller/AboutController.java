@@ -6,17 +6,16 @@ import view.AboutView;
 import core.BatailleNavale;
 
 public class AboutController extends AbstractController {
-	private BatailleNavale batailleNavale;
 	
-	public AboutController(BatailleNavale bn)
+	public AboutController()
 	{
-		batailleNavale = bn;
 		view = new AboutView(this);
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		MenuController menu = new MenuController(batailleNavale);
-		batailleNavale.changeScreen(menu);
+		MenuController menu = new MenuController();
+		BatailleNavale.changeScreen(menu);
 		
 	}
 

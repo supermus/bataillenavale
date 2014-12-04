@@ -9,37 +9,34 @@ import controller.MenuController;
 
 public class BatailleNavale{
 	
-	private JFrame window;
-	private AbstractController controller;
-	private JPanel view;
+	private static JFrame window;
+	private static AbstractController controller;
 	
 	public BatailleNavale()
 	{
-		System.out.println("Nouvelle instance de BatailleNavale");
+		System.out.println("Creation de batailleNavale");
 	}
 	
-	public void init()
+	public static void init()
 	{
 		System.out.println("Initialisation...");
-		this.controller = new MenuController(this);
-		this.view = controller.getView();
-		this.window = new JFrame();
-		this.window.add(view);
-		this.window.pack();
-		this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.window.setVisible(true);
+		controller = new MenuController();
+		window = new JFrame();
+		window.add(controller.getView());
+		window.pack();
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setVisible(true);
 		
 	}
 	
-	public void changeScreen(AbstractController c)
+	public static void changeScreen(AbstractController c)
 	{
 		System.out.println("Nouveau controller : " + c.toString());
-		this.window.getContentPane().removeAll();
-		this.controller = c;
-		this.view = c.getView();
-		this.window.add(view);
-		this.window.setVisible(true);
-		this.window.pack();
+		window.getContentPane().removeAll();
+		controller = c;
+		window.add(c.getView());
+		window.setVisible(true);
+		window.pack();
 	}
 
 }

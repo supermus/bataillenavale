@@ -8,11 +8,7 @@ import core.BatailleNavale;
 
 public class GameController extends AbstractController {
 	
-	private BatailleNavale batailleNavale;
-	
-	public GameController(BatailleNavale bn){
-		  
-		batailleNavale = bn;
+	public GameController(){
 		view = new GameContainerView(this);
 	}
 

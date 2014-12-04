@@ -16,8 +16,6 @@ import core.BatailleNavale;
 import view.GameConfigView;
 
 public class GameConfigController extends AbstractController{
-
-	private BatailleNavale batailleNavale;
 	private ArrayList<Player> player;
 	private GameMode gameMode;
 	private Game game;
@@ -33,9 +31,7 @@ public class GameConfigController extends AbstractController{
 	private int nbZodiac;
 	
 	
-	public GameConfigController(BatailleNavale bn){
-		  
-			batailleNavale = bn;
+	public GameConfigController(){
 			view = new GameConfigView(this);
 		}
 	
@@ -90,7 +86,7 @@ public class GameConfigController extends AbstractController{
 				  				  break;
 				}
 				
-				batailleNavale.changeScreen(new GameController(batailleNavale));
+				BatailleNavale.changeScreen(new GameController());
 //				if(ModeJeux == "Demo"){
 //					player.add(new Computer("Computer1"));
 //					player.add(new Computer("Computer2"));
@@ -102,7 +98,7 @@ public class GameConfigController extends AbstractController{
 				}
 			else if (e.getSource() == ((GameConfigView)view).btnAnnuler){
 				System.out.println("Retour au MENU");
-				batailleNavale.changeScreen(new MenuController(batailleNavale));
+				BatailleNavale.changeScreen(new MenuController());
 			}
 			
 		}

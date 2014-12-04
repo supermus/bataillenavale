@@ -8,11 +8,8 @@ import view.MenuView;
 
 public class MenuController extends AbstractController {
 	
-	private BatailleNavale batailleNavale;
-	
-	public MenuController(BatailleNavale bn)
+	public MenuController()
 	{
-		batailleNavale = bn;
 		view = new MenuView(this);
 	}
 
@@ -21,7 +18,7 @@ public class MenuController extends AbstractController {
 		// TODO Auto-generated method stub
 		if(e.getSource() == ((MenuView)view).btnPlay){
 			System.out.println("Appel de PLAY");
-			batailleNavale.changeScreen(new GameConfigController(batailleNavale));
+			BatailleNavale.changeScreen(new GameConfigController());
 			
 		}
 		else if (e.getSource() == ((MenuView)view).btnQuit){
@@ -29,7 +26,7 @@ public class MenuController extends AbstractController {
 		}
 		else if (e.getSource() == ((MenuView)view).btnCredits){
 			System.out.println("Appel de About");
-			batailleNavale.changeScreen(new AboutController(batailleNavale));
+			BatailleNavale.changeScreen(new AboutController());
 		}
 		
 	}

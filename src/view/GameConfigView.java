@@ -53,10 +53,8 @@ public class GameConfigView extends AbstractView {
 	/**
 	 * Create the panel.
 	 */
-	public GameConfigView(GameConfigController control) {
-		
-		
-		this.controller = control;
+	public GameConfigView(GameConfigController c) {
+		super(c);
 		setLayout(new GridLayout(6, 1, 0, 0));
 		
 		JPanel panel = new JPanel();

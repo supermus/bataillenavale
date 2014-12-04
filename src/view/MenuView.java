@@ -18,8 +18,8 @@ public class MenuView extends AbstractView {
 	public JButton btnQuit;
 	public JButton btnCredits;
 	
-	public MenuView(MenuController controller) {
-		this.controller = controller;
+	public MenuView(MenuController c) {
+		super(c);
 		setLayout(new GridLayout(0, 1, 0, 0));
 		
 		btnPlay = new JButton("Play");
