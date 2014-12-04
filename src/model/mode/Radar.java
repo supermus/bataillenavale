@@ -1,10 +1,13 @@
 package model.mode;
 
 import java.util.Map.Entry;
+
+
 import model.Grid;
 import model.Position;
 
 public class Radar extends Battle {
+	
 	
 	
 //  Methode pour attaquer

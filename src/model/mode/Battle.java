@@ -42,7 +42,22 @@ public  class Battle {
 			break;
 		}
 	}
-
+	/*
+	public void validat(Grid g){
+		Position pos=new Position();
+		for (int j = 0; j < g.getShip().size(); j++) {
+			for(Entry<String, Boolean> entry : g.getShip().get(j).getState().entrySet()){
+				if(pos.toPosition(entry.getKey()).getX()>12||pos.toPosition(entry.getKey()).getY()>12){
+					//g.getShip().remove(j);
+					System.out.println(g.getShip().get(j).getState().toString());
+					break;
+				}
+			System.out.println(g.getShip().get(j).getName());
+			}
+		}
+		
+	}
+*/
 	
 	public ArrayList<Integer> getNumbers(Grid g, int y) {
 		for (int i = 0; i < g.getSize(); i++) {
