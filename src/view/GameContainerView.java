@@ -48,7 +48,6 @@ public class GameContainerView extends AbstractView implements Observer {
 
 	public GameContainerView(GameController c) {
 		super(c);
-		game.addObserver(this);
 		setPreferredSize(new Dimension(1024, 720));
 		setLayout(null);
 
@@ -148,12 +147,15 @@ public class GameContainerView extends AbstractView implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
+		//System.out.println(arg0.toString());
+		this.labelPlayerLeft.setText(game.getPlayer().get(0).getNom());
+		this.labelPlayerRight.setText(game.getPlayer().get(1).getNom());
 	}
 	
 	public void setModel(Game g)
 	{
 		this.game = g;
+		this.game.addObserver(this);
+		this.update(null, null); // on force une update
 	}
 }
