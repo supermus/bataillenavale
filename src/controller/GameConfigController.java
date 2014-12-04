@@ -86,6 +86,7 @@ public class GameConfigController extends Controller{
 				  				  game = new Game(player,gameMode,TailleMap);
 				  				  break;
 				}
+				batailleNavale.changeScreen(new MenuController(batailleNavale));
 //				if(ModeJeux == "Demo"){
 //					player.add(new Computer("Computer1"));
 //					player.add(new Computer("Computer2"));
