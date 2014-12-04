@@ -72,14 +72,27 @@ public class GameConfigController extends Controller{
 				System.out.println("Nombre de Cuirassés Furtif : "+nbCuirassésFurtif);
 				nbZodiac = (Integer) ((GameConfigView)view).spinnerZodiac.getValue();
 				System.out.println("Nombre de Zodiac : "+nbZodiac);
+			
+				switch (ModeJeux){
+				case "Demo" : player.add(new Computer("Computer1"));
+							  player.add(new Computer("Computer2"));
+							  gameMode = (GameMode) (Object)TypeBataille;
+							  game = new Game(player,gameMode,TailleMap);
+							  break;
 				
-				if(ModeJeux == "Demo"){
-					player.add(new Computer("Computer1"));
-					player.add(new Computer("Computer2"));
-				    gameMode = (GameMode) (Object)TypeBataille;
-					game = new Game(player,gameMode,TailleMap);
-					
+				case "1 Joueur" : player.add(new Computer("Computer1"));
+				  				  player.add(new Human(speudo));
+				  				  gameMode = (GameMode) (Object)TypeBataille;
+				  				  game = new Game(player,gameMode,TailleMap);
+				  				  break;
 				}
+//				if(ModeJeux == "Demo"){
+//					player.add(new Computer("Computer1"));
+//					player.add(new Computer("Computer2"));
+//				    gameMode = (GameMode) (Object)TypeBataille;
+//					game = new Game(player,gameMode,TailleMap);
+//					
+//				}
 				
 				}
 			else if (e.getSource() == ((GameConfigView)view).btnAnnuler){
