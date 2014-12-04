@@ -1,10 +1,11 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 import model.mode.Battle;
 
-public class Game {
+public class Game extends Observable {
 	
 	private ArrayList<Player> player;
 	private Battle mode;

@@ -14,10 +14,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import model.Game;
 import controller.GameController;
 
 public class GameContainerView extends AbstractView implements Observer {
+	
+	// Modele
+	
+	Game game; // contient la partie
 
+	// Elements d'interface
 	GridView leftGrid;
 	GridView rightGrid;
 	private JLabel labelVS;
@@ -42,6 +48,7 @@ public class GameContainerView extends AbstractView implements Observer {
 
 	public GameContainerView(GameController c) {
 		super(c);
+		game.addObserver(this);
 		setPreferredSize(new Dimension(1024, 720));
 		setLayout(null);
 
@@ -143,5 +150,10 @@ public class GameContainerView extends AbstractView implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void setModel(Game g)
+	{
+		this.game = g;
 	}
 }
