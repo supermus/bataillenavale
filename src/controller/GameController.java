@@ -9,7 +9,7 @@ import core.BatailleNavale;
 public class GameController extends AbstractController {
 	
 	public GameController(){
-		view = new GameContainerView(this);
+	view = new GameContainerView(this);
 	}
 
 	@Override

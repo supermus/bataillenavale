@@ -16,7 +16,7 @@ import view.GameConfigView;
 import core.BatailleNavale;
 
 public class GameConfigController extends AbstractController{
-	private ArrayList<Player> player;
+	private ArrayList<Player>player = new ArrayList<Player>();
 	private Battle gameMode;
 	private Game game;
 	private Computer com;
