@@ -1,11 +1,15 @@
 package view;
 
 import controller.AbstractController;
+import controller.ScoreViewController;
+
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
@@ -23,7 +27,7 @@ public class ScoreView extends AbstractView{
 	private JLabel lblShootMiss2 ;
 	private JButton btnValidate;
 
-	public ScoreView(AbstractController c) {
+	public ScoreView(ScoreViewController c) {
 		super(c);
 		setLayout(new GridLayout(5, 3, 0, 0));
 		

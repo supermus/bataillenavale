@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 
+import model.Game;
 import core.BatailleNavale;
 import view.GameConfigView;
 import view.MenuView;
