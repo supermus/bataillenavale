@@ -1,5 +1,7 @@
 bataillenavale
 ==============
+La classe radar n'a pas été supprimé
+Pour me part je l'ai toujour dans le projet
 
 Note Gameconfigview 
 
