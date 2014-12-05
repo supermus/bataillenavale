@@ -107,11 +107,11 @@ public class GameConfigView extends AbstractView {
 		
 	    rdbtn1Joueur = new JRadioButton("1 Joueur");
 	    rdbtn1Joueur.setActionCommand("1Joueur");
-	    rdbtn1Joueur.setEnabled(false);
 		panel_1.add(rdbtn1Joueur);
 		
 		rdbtn2Joueur = new JRadioButton("2 Joueur");
 		rdbtn2Joueur.setActionCommand("2Joueur");
+		rdbtn2Joueur.setEnabled(false);
 		panel_1.add(rdbtn2Joueur);
 		
 		//BtnGroup du mode de jeu
