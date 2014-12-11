@@ -32,18 +32,18 @@ public abstract class Player {
 	}
 	
 
-	public int getAttacks(Grid grid) {
-		return grid.getAttacks().size();
+	public int getAttacks() {
+		return attacks;
 	}
 
 
-	public int getHits(Grid grid) {
-		return grid.getHits().size();
+	public int getHits() {
+		return hits;
 	}
 
 
-	public int getMiss(Grid grid) {
-		return grid.getMissed().size();
+	public int getMiss() {
+		return miss;
 	}
 
 	public void setScore(int score) {
@@ -68,6 +68,15 @@ public abstract class Player {
 	{
 		return grid;
 	}
-
+	
+	public void addHit()
+	{
+		this.hits++;
+	}
+	
+	public void addMiss()
+	{
+		this.miss++;
+	}
 
 }
