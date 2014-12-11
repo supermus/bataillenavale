@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import model.Computer;
 import model.Game;
+import model.Grid;
 import model.Human;
 import model.Player;
 import model.mode.Artillery;
@@ -82,13 +83,13 @@ public class GameConfigController extends AbstractController{
 					gameMode = new Radar();
 				
 				switch (ModeJeux){
-				case "Demo" : player.add(new Computer("Computer1"));
-							  player.add(new Computer("Computer2"));
+				case "Demo" : player.add(new Computer("Computer1", new Grid(TailleMap)));
+							  player.add(new Computer("Computer2", new Grid(TailleMap)));
 							  game = new Game(player,gameMode,TailleMap,nbSousMarin,nbPorteAvion,nbCuirassésFurtif,nbZodiac);
 							  break;
 				
-				case "1 Joueur" : player.add(new Computer("Computer1"));
-				  				  player.add(new Human(speudo));
+				case "1 Joueur" : player.add(new Computer("Computer1", new Grid(TailleMap)));
+				  				  player.add(new Human(speudo, new Grid(TailleMap)));
 				  				  game = new Game(player,gameMode,TailleMap,nbSousMarin,nbPorteAvion,nbCuirassésFurtif,nbZodiac);
 				  				  break;
 				}
