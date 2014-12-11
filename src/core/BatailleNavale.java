@@ -33,6 +33,7 @@ public class BatailleNavale{
 		controller = c;
 		window.add(c.getView());
 		window.setVisible(true);
+		window.setResizable(false);
 		window.pack();
 	}
 
