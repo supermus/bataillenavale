@@ -19,6 +19,8 @@ import model.Game;
 
 public class ScoreView extends AbstractView implements Observer {
 	
+	private static Game game;
+	
 	
 	private JLabel lblNamePlayerVic;
 	private JLabel lblTime;
@@ -118,6 +120,24 @@ public class ScoreView extends AbstractView implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
+		
+		//this.lblNamePlayerVic.setText(game.getPlayer());
+		this.lblTime.setText(Integer.toString(game.getTime()));
+		
+		this.lblNomDuJoueur1.setText(game.getPlayer().get(0).getNom());
+		//this.lblboatDestroyed1.setText(game.getPlayer().get(0).);
+		this.lblShootSucces1.setText(Integer.toString(game.getPlayer().get(0).getHits()));
+		this.lblShootMiss1.setText(Integer.toString(game.getPlayer().get(0).getMiss()));
+		
+		this.lblNomDuJoueur2.setText(game.getPlayer().get(0).getNom());
+		//this.lblboatDestroyed2.setText(Integer.toString(game.getPlayer().get(1)));
+		this.lblShootSucces2.setText(Integer.toString(game.getPlayer().get(0).getHits()));
+		this.lblShootMiss2.setText(Integer.toString(game.getPlayer().get(0).getMiss()));
+		
+		
+		
+		
+		
 		
 		// TODO Auto-generated method stub
 		
