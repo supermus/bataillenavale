@@ -14,7 +14,7 @@ import model.ship.Ironclad;
 import model.ship.Submarine;
 import model.ship.Zodiac;
 
-public  class Battle {
+public abstract class Battle {
 	ArrayList<Integer> numbers;
 	ArrayList<Position> surrond;
 	public Battle() {
