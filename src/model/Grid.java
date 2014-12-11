@@ -15,7 +15,7 @@ public class Grid {
 	public Grid(int size) {
 		this.size = size;
 		this.ships =new ArrayList<Ship>();
-		this.missed = new ArrayList<Position>();
+		//this.missed = new ArrayList<Position>();
 		this.hits = new ArrayList<Position>();
 		this.attacks = new ArrayList<Position>();
 		
