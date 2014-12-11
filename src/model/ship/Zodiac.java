@@ -8,6 +8,11 @@ public class Zodiac extends Ship {
 	private final static String SHIP_NAME = "Zodiac";
 	private final static int SHIP_SIZE = 2;
 	
+	/**
+	 * Constructeur principal de Zodiac
+	 * @param origin Position du bateau
+	 * @param orientation Orientation du bateau
+	 */
 	public Zodiac(Position origin, Orientation orientation) {
 		super(SHIP_NAME, origin, SHIP_SIZE, orientation);
 	}
