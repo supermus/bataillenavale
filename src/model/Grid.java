@@ -15,7 +15,7 @@ public class Grid {
 	public Grid(int size) {
 		this.size = size;
 		this.ships =new ArrayList<Ship>();
-		//this.missed = new ArrayList<Position>();
+		this.missed = new ArrayList<Position>();
 		this.hits = new ArrayList<Position>();
 		this.attacks = new ArrayList<Position>();
 		
@@ -31,6 +31,7 @@ public class Grid {
 		public boolean isship(Position position){
 			 boolean isship=false;
 			for (int i = 0; i <this.getShip().size(); i++) {
+				System.out.println(this.getShip().get(i).getState()+"test");
 				if(this.getShip().get(i).hasPosition(position)){
 					isship=true;
 				break;
@@ -43,7 +44,7 @@ public class Grid {
 		public boolean isattacked(Position position){
 			 boolean isattacked=false;
 			for (int i = 0; i < this.getAttacks().size(); i++) {
-				if(this.getAttacks().get(i).toString().equals(position.toString())){
+				if(this.getAttacks().get(i).equals(position)){
 					isattacked=true;
 				break;}
 				}
@@ -78,7 +79,7 @@ public class Grid {
 		public boolean ishits(Position position){
 			 boolean ishits=false;
 			for (int i = 0; i < this.hits.size(); i++) {
-				if(this.hits.get(i).toString().equals(position.toString())){
+				if(this.hits.get(i).equals(position)){
 					ishits=true;
 				break;}
 					}
@@ -87,7 +88,7 @@ public class Grid {
 		public boolean ismissed(Position position){
 			 boolean ismissed=false;
 			for (int i = 0; i < this.missed.size(); i++) {
-				if(this.missed.get(i).toString().equals(position.toString())){
+				if(this.missed.get(i).equals(position)){
 					ismissed=true;
 				break;}
 					}
