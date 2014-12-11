@@ -21,7 +21,7 @@ public class GameContainerView extends AbstractView implements Observer {
 	
 	// Modele
 	
-	Game game; // contient la partie
+	private static Game game; // contient la partie
 
 	// Elements d'interface
 	GridView leftGrid;
@@ -154,8 +154,9 @@ public class GameContainerView extends AbstractView implements Observer {
 	
 	public void setModel(Game g)
 	{
-		this.game = g;
-		this.game.addObserver(this);
+
+		game = g;
+		game.addObserver(this);
 		this.update(null, null); // on force une update
 	}
 }
