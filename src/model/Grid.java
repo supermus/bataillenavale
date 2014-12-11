@@ -6,14 +6,14 @@ import model.ship.Ship;
 
 public class Grid {
 	int size;
-	Player player;
+	
 	private ArrayList<Ship> ships;//liste des navires	
 	private ArrayList<Position> missed ; //liste des coups ratés de l'adversaire
 	private ArrayList<Position> hits ; //liste des coups reussits de l'adversaire
 	private ArrayList<Position> attacks; //liste des attaques de l'adversaire
+	
 	public Grid(int size, Player p1) {
 		this.size = size;
-		this.player = p1;
 		this.ships =new ArrayList<Ship>();
 		this.missed = new ArrayList<Position>();
 		this.hits = new ArrayList<Position>();
@@ -22,9 +22,6 @@ public class Grid {
 	}
 	
 
-	public Player getPlayer() {
-		return player;
-	}
 
 	public ArrayList<Ship> getShip() {
 		return ships;

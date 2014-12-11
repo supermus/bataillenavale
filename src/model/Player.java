@@ -13,14 +13,16 @@ public abstract class Player {
 	private int attacks;
 	private int hits;
 	private int miss;
+	private Grid grid;
 	
 	
-	public Player(String nom) {
+	public Player(String nom, Grid g) {
 		this.nom = nom;
 		this.score = 0;
 		this.attacks = 0;
 		this.hits = 0;
 		this.miss = 0;
+		this.grid = g;
 	}
 	
 	@Override
@@ -60,6 +62,11 @@ public abstract class Player {
 	public String getNom()
 	{
 		return nom;
+	}
+	
+	public Grid getGrid()
+	{
+		return grid;
 	}
 
 

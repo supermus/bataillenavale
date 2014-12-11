@@ -1,30 +1,28 @@
 package model.mode;
 
-import java.util.ArrayList;
-
-import model.Grid;
+import model.Player;
 import model.Position;
 
 public class Artillery extends Battle{
 
-	public void attack(Grid player,Grid adversaire,int y){
+	public void attack(Player player, Player adversaire,int y){
 		int x;
-		if(!this.getNumbers(adversaire, y).isEmpty()){
-		x=this.getresult(this.getNumbers(adversaire, y));
+		if(!this.getNumbers(adversaire.getGrid(), y).isEmpty()){
+		x=this.getresult(this.getNumbers(adversaire.getGrid(), y));
 		Position position=new Position(x, y);
-			if(adversaire.isship(position)){
-				adversaire.addhits(position);
-				for (int i = 0; i < adversaire.getShip().size(); i++) {
-					if(adversaire.getShip().get(i).getState().containsKey(position.toString())){
-						adversaire.getShip().get(i).setStates(position);
+			if(adversaire.getGrid().isship(position)){
+				adversaire.getGrid().addhits(position);
+				for (int i = 0; i < adversaire.getGrid().getShip().size(); i++) {
+					if(adversaire.getGrid().getShip().get(i).getState().containsKey(position.toString())){
+						adversaire.getGrid().getShip().get(i).setStates(position);
 					} 
 				}
-				player.getPlayer().setScore(10);
+				player.addScore(10);
 			}
 			else{
-				adversaire.addMissed(position);
+				adversaire.getGrid().addMissed(position);
 			}
-			adversaire.addattacks(position);
+			adversaire.getGrid().addattacks(position);
 		
 		}
 		else{
