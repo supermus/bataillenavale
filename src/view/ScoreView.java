@@ -32,7 +32,7 @@ public class ScoreView extends AbstractView implements Observer {
 	private JLabel lblboatDestroyed2;
 	private JLabel lblShootSucces2 ;
 	private JLabel lblShootMiss2 ;
-	private JButton btnValidate;
+	public JButton btnValidate;
 
 	public ScoreView(ScoreViewController c) {
 		super(c);
@@ -114,6 +114,7 @@ public class ScoreView extends AbstractView implements Observer {
 		add(panel_4);
 		
 		btnValidate = new JButton("Valider");
+		btnValidate.addActionListener(controller);
 		panel_4.add(btnValidate);
 		// TODO Auto-generated constructor stub
 	}
@@ -134,13 +135,15 @@ public class ScoreView extends AbstractView implements Observer {
 		this.lblShootSucces2.setText(Integer.toString(game.getPlayer().get(0).getHits()));
 		this.lblShootMiss2.setText(Integer.toString(game.getPlayer().get(0).getMiss()));
 		
-		
-		
-		
-		
-		
-		// TODO Auto-generated method stub
-		
 	}
-
+		
+	public void setModel(Game g)
+	{
+		this.game = g;
+		this.game.addObserver(this);
+		this.update(null, null); 
+	}
+		
 }
+
+

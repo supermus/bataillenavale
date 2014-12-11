@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 
+import core.BatailleNavale;
 import model.Game;
 import view.GameContainerView;
 import view.MenuView;
@@ -10,7 +11,7 @@ import view.ScoreView;
 
 public class ScoreViewController extends AbstractController {
 	
-	 Game game;
+	 private static Game game;
 
 	public ScoreViewController(Game g)
 	{
@@ -20,8 +21,15 @@ public class ScoreViewController extends AbstractController {
 	
 	
 
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+		
+		ScoreView scoreView = (ScoreView) view;
+		
+		if(e.getSource() == (scoreView.btnValidate))
+		{
+			BatailleNavale.changeScreen(new MenuController());
+			
+		}
 		
 	}
 
