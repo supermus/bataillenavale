@@ -1,7 +1,11 @@
 package model;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Observable;
+
+import javax.swing.Timer;
 
 import model.mode.Battle;
 
@@ -14,6 +18,8 @@ public class Game extends Observable {
 	private int nbPorteAvion;
 	private int nbCuirassésFurtif;
 	private int nbZodiac;
+	private Timer timeCount;
+	private int time;
 
 	
 	public Game(ArrayList<Player> player, Battle mode, int mapSize,int nbSousMarin,int nbPorteAvion, int nbCuirassésFurtif, int nbZodiac  )
@@ -25,12 +31,19 @@ public class Game extends Observable {
 		this.nbCuirassésFurtif = nbCuirassésFurtif;
 		this.nbPorteAvion = nbPorteAvion;
 		this.nbZodiac = nbZodiac;
+		this.time = 0;
+		
+		// Compteur pour le temps
+		Timer timeCount = new Timer(1000, new ActionListener(){
+			@Override 
+			public void actionPerformed(ActionEvent e) { time++; }
+		});
 		
 	}
 	
 	public void start()
 	{
-		
+		timeCount.start();
 	}
 	
 	public void checkVictory()
@@ -40,7 +53,7 @@ public class Game extends Observable {
 	
 	public void end()
 	{
-		
+		timeCount.stop();
 	}
 	public ArrayList<Player> getPlayer()
 	{

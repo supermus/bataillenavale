@@ -21,9 +21,7 @@ public class BatailleNavale{
 		window.setVisible(true);
 		
 		// chargement du menu
-		controller = new MenuController();
-		window.add(controller.getView());
-		window.pack();
+		changeScreen(new MenuController());
 	}
 	
 	public static void changeScreen(AbstractController c)
