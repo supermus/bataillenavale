@@ -23,19 +23,19 @@ public abstract class Battle {
 	}
 	
 	//Methode pour placer les navires	
-	public void PlaceShip(Grid  g, String type, Position position,Orientation orientation){
+	public void PlaceShip(Player player, String type, Position position,Orientation orientation){
 		switch (type) {
 		case "Aircraft":
-			g.getShip().add(new AircraftCarrier(position,orientation));
+			player.getGrid().getShip().add(new AircraftCarrier(position,orientation));
 			break; 
 		case "Ironclad":
-			g.getShip().add(new Ironclad(position,orientation));
+			player.getGrid().getShip().add(new Ironclad(position,orientation));
 			break;
 		case "Submarine":
-			g.getShip().add(new Submarine(position,orientation));
+			player.getGrid().getShip().add(new Submarine(position,orientation));
 			break;
 		case "Zodiac":
-			g.getShip().add(new Zodiac(position,orientation));
+			player.getGrid().getShip().add(new Zodiac(position,orientation));
 			break;
 		
 		default:
