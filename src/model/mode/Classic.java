@@ -11,7 +11,9 @@ public class Classic extends Battle {
 		//verifie si la case est attaqué 
 		if(!adversaire.getGrid().isattacked(position)){
 			//s'il n'est pas attaqué il verifie si cette derniere contient un navire 
+			
 			if(adversaire.getGrid().isship(position)){
+				
 				adversaire.getGrid().addhits(position);
 				//change etat de la case du navire de l'adversaire
 				for (int i = 0; i < adversaire.getGrid().getShip().size(); i++) {
@@ -21,6 +23,7 @@ public class Classic extends Battle {
 				}
 				//ajout score
 				player.addScore(10);
+				
 			}
 			else{
 				//ajout des coups ratés

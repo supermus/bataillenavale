@@ -2,6 +2,8 @@ package model.ship;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map.Entry;
+
 import model.Orientation;
 import model.Position;
 
@@ -58,7 +60,18 @@ public abstract class Ship {
 	
 	public boolean hasPosition(Position p)
 	{
-		return state.containsKey(p.toString());
+		Boolean boll=false;
+		for (Entry<Position, Boolean> entry : this.getState().entrySet()) {
+            if (entry.getKey().equals(p)) {
+            	boll=true;
+            	break;
+            }
+            else{
+            	boll=false;
+            }
+		}
+		
+		return boll;
 	}
 	
 	//modifier 1er case du navire
