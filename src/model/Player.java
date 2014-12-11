@@ -6,9 +6,9 @@ import model.ship.*;
 public abstract class Player {
 
 	
-	private String nom;
-	private String Statu;
-	private int score;
+	private String nom; // nom du joueur ou de l'ordinateur
+	private String status; // état du joueur (gagnant/perdant)
+	private int score; 
 	private int hits;
 	private int miss;
 	private Grid grid;
@@ -20,11 +20,12 @@ public abstract class Player {
 		this.hits = 0;
 		this.miss = 0;
 		this.grid = g;
+		this.status = "inconnu";
 	}
 	
 	@Override
 	public String toString() {
-		return "Player [nom=" + nom + ", Statu=" + Statu + ", nombre d'attaques="
+		return "Player [nom=" + nom + ", status=" + status + ", nombre d'attaques="
 				+ (miss+hits) + ", score=" + score + "]";
 	}
 	
