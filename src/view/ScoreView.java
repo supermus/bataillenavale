@@ -9,11 +9,16 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
-public class ScoreView extends AbstractView{
+import model.Game;
+
+public class ScoreView extends AbstractView implements Observer {
+	
 	
 	private JLabel lblNamePlayerVic;
 	private JLabel lblTime;
@@ -109,6 +114,13 @@ public class ScoreView extends AbstractView{
 		btnValidate = new JButton("Valider");
 		panel_4.add(btnValidate);
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		
+		// TODO Auto-generated method stub
+		
 	}
 
 }

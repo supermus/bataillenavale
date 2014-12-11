@@ -150,10 +150,12 @@ public class GameContainerView extends AbstractView implements Observer {
 		//System.out.println(arg0.toString());
 		this.labelPlayerLeft.setText(game.getPlayer().get(0).getNom());
 		this.labelPlayerRight.setText(game.getPlayer().get(1).getNom());
-		this.labelShotValueLeft.setText(game.getPlayer().get(0).getHits() +"dont " +game.getPlayer().get(0).getMiss());
-		this.labelShotValueRight.setText(game.getPlayer().get(1).getHits() +"dont "+game.getPlayer().get(1).getMiss());
+		this.labelShotValueLeft.setText(game.getPlayer().get(0).getHits() +" dont " +game.getPlayer().get(0).getMiss()+" raté");
+		this.labelShotValueRight.setText(game.getPlayer().get(1).getHits() +" dont "+game.getPlayer().get(1).getMiss() +" raté");
 		this.labelScoreValueLeft.setText( Integer.toString(game.getPlayer().get(0).getScore()));
 		this.labelScoreValueRight.setText(Integer.toString(game.getPlayer().get(1).getScore()));
+		this.labelTime.setText((game.getTime()/60)+":"+ (game.getTime()%60));
+		
 		
 	}
 	
