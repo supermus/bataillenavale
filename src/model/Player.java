@@ -28,10 +28,6 @@ public abstract class Player {
 		return "Player [nom=" + nom + ", Statu=" + Statu + ", nombre d'attaques="
 				+ attacks + ", score=" + score + "]";
 	}
-
-	public void setScore(int score) {
-		this.score += score;
-	}
 	
 
 	public int getAttacks(Grid grid) {
@@ -48,6 +44,14 @@ public abstract class Player {
 		return grid.getMissed().size();
 	}
 
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	public void addScore(int score)
+	{
+		this.score += score;
+	}
 
 	public int getScore() {
 		return score;
