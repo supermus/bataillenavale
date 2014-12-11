@@ -41,4 +41,9 @@ public class Position {
 		Position position=new Position(x, y);
 		return position;
 	}
+	
+	public boolean equals(Position p)
+	{
+		return (this.x == p.getX() && this.y == p.getY());
+	}
 }
