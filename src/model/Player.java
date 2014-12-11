@@ -1,7 +1,6 @@
 package model;
 
 import java.util.*;
-
 import model.ship.*;
 
 public abstract class Player {
@@ -10,7 +9,6 @@ public abstract class Player {
 	private String nom;
 	private String Statu;
 	private int score;
-	private int attacks;
 	private int hits;
 	private int miss;
 	private Grid grid;
@@ -19,7 +17,6 @@ public abstract class Player {
 	public Player(String nom, Grid g) {
 		this.nom = nom;
 		this.score = 0;
-		this.attacks = 0;
 		this.hits = 0;
 		this.miss = 0;
 		this.grid = g;
@@ -28,12 +25,12 @@ public abstract class Player {
 	@Override
 	public String toString() {
 		return "Player [nom=" + nom + ", Statu=" + Statu + ", nombre d'attaques="
-				+ attacks + ", score=" + score + "]";
+				+ (miss+hits) + ", score=" + score + "]";
 	}
 	
 
 	public int getAttacks() {
-		return attacks;
+		return hits + miss;
 	}
 
 
