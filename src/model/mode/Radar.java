@@ -31,11 +31,11 @@ public class Radar extends Battle {
 				//ajout des coups ratés
 				adversaire.getGrid().addMissed(position);
 				for (int i = 0; i < adversaire.getGrid().getShip().size(); i++) {
-						for (Entry<String, Boolean> entry : adversaire.getGrid().getShip().get(i).getState().entrySet()) {
+						for (Entry<Position, Boolean> entry : adversaire.getGrid().getShip().get(i).getState().entrySet()) {
 				            if (entry.getValue().equals(true)) {
-				            	pos=pos.toPosition(entry.getKey());
+				            	pos = entry.getKey();
 				            	if(resultat>distance(pos, position)){
-				                resultat=distance(pos, position);
+				            		resultat=distance(pos, position);
 				                }
 				            }
 						}

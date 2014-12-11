@@ -11,7 +11,7 @@ public abstract class Ship {
 	private int size; //La taille du navire
 	private Position origin; //position de la  premiere case du navire
 	private Orientation orientation; // orientation du navire top right bot left
-	private HashMap<String, Boolean> state; //Position(String)  et l'etat(Boolean true=pas touché false=touché) de chaque case du navire 
+	private HashMap<Position, Boolean> state; //Position(String)  et l'etat(Boolean true=pas touché false=touché) de chaque case du navire 
 	
 	public Ship(String name, Position origin, int size, Orientation orientation)
 	{
@@ -19,26 +19,26 @@ public abstract class Ship {
 		this.origin = origin;
 		this.size = size;
 		this.orientation = orientation;
-		state=new HashMap<String, Boolean>();
+		state=new HashMap<Position, Boolean>();
 		switch (orientation) {
 		case BOT:
 			for (int i = 0; i < size; i++) {
-				state.put(new Position(origin.getX(),origin.getY()-i).toString(), true);
+				state.put(new Position(origin.getX(),origin.getY()-i), true);
 			}
 			break;
 		case TOP:
 			for (int i = 0; i < size; i++) {
-				state.put(new Position(origin.getX(),origin.getY()+i).toString(), true);
+				state.put(new Position(origin.getX(),origin.getY()+i), true);
 			}
 			break;
 		case LEFT:
 			for (int i = 0; i < size; i++) {
-				state.put(new Position(origin.getX()-i,origin.getY()).toString(), true);
+				state.put(new Position(origin.getX()-i,origin.getY()), true);
 			}
 			break;
 		case RIGHT:
 			for (int i = 0; i < size; i++) {
-				state.put(new Position(origin.getX()+i,origin.getY()-i).toString(), true);
+				state.put(new Position(origin.getX()+i,origin.getY()-i), true);
 			}
 			break;
 		}
@@ -76,7 +76,7 @@ public abstract class Ship {
 	
 	
 	public void setStates(Position position) {
-		state.put(position.toString(), false);
+		state.put(position, false);
 	}
 	
 	
@@ -85,7 +85,7 @@ public abstract class Ship {
 	}
 
 
-	public HashMap<String, Boolean> getState() {
+	public HashMap<Position, Boolean> getState() {
 		return state;
 	}
 	public boolean isDead()
