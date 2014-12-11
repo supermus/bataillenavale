@@ -12,7 +12,7 @@ public class Grid {
 	private ArrayList<Position> hits ; //liste des coups reussits de l'adversaire
 	private ArrayList<Position> attacks; //liste des attaques de l'adversaire
 	
-	public Grid(int size, Player p1) {
+	public Grid(int size) {
 		this.size = size;
 		this.ships =new ArrayList<Ship>();
 		this.missed = new ArrayList<Position>();
