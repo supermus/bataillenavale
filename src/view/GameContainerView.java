@@ -155,6 +155,7 @@ public class GameContainerView extends AbstractView implements Observer {
 		this.labelScoreValueLeft.setText( Integer.toString(game.getPlayer().get(0).getScore()));
 		this.labelScoreValueRight.setText(Integer.toString(game.getPlayer().get(1).getScore()));
 		this.labelTime.setText((game.getTime()/60)+":"+ (game.getTime()%60));
+		this.labelTurn.setText(Integer.toString(game.getTurn()));
 		
 		
 	}

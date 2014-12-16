@@ -21,6 +21,9 @@ public class Game extends Observable {
 	private Timer timeCount;
 	private int time;
 	private int tour;
+	private Grid gridPlayer1;
+	private Grid gridPlayer2;
+	
 
 	
 	public Game(ArrayList<Player> player, Battle mode, int mapSize,int nbSousMarin,int nbPorteAvion, int nbCuirassésFurtif, int nbZodiac  )
@@ -35,6 +38,7 @@ public class Game extends Observable {
 		this.time = 0;
 		this.tour = 0;
 		
+		
 		// Compteur pour le temps
 		Timer timeCount = new Timer(1000, new ActionListener(){
 			@Override 
@@ -46,6 +50,10 @@ public class Game extends Observable {
 	public void start()
 	{
 		timeCount.start();
+	}
+	
+	public int getTurn(){
+		return tour;
 	}
 	
 	public int getTime(){
