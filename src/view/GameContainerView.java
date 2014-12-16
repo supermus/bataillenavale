@@ -20,6 +20,7 @@ import controller.GameController;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.JSpinner;
 
 public class GameContainerView extends AbstractView implements Observer {
 	
@@ -49,8 +50,6 @@ public class GameContainerView extends AbstractView implements Observer {
 	private JLabel lblEntrerLesCoordonnes;
 	private JComboBox comboBox;
 	private JComboBox comboBox_1;
-	private JTextField textField;
-	private JLabel lblNewLabel;
 	private Orientation orientation;
 
 	public GameContainerView(GameController c) {
@@ -154,17 +153,6 @@ public class GameContainerView extends AbstractView implements Observer {
 			comboBox_1.addItem(orien);
 		}
 		
-		
-		
-		textField = new JTextField();
-		textField.setBounds(42, 640, 116, 22);
-		add(textField);
-		textField.setColumns(10);
-		
-		lblNewLabel = new JLabel("Coordonn\u00E9e de la 1er case");
-		lblNewLabel.setBounds(170, 643, 161, 16);
-		add(lblNewLabel);
-		
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.setBounds(42, 675, 97, 25);
 		add(btnNewButton);
@@ -184,6 +172,18 @@ public class GameContainerView extends AbstractView implements Observer {
 		JButton btnNewButton_1 = new JButton("D\u00E9marrer la partie");
 		btnNewButton_1.setBounds(452, 675, 153, 25);
 		add(btnNewButton_1);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(42, 640, 53, 22);
+		add(spinner);
+		
+		JLabel lblCoordonneerCase = new JLabel("Coordonn\u00E9e Horizontale/Verticale");
+		lblCoordonneerCase.setBounds(180, 646, 207, 16);
+		add(lblCoordonneerCase);
+		
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setBounds(118, 640, 44, 22);
+		add(spinner_1);
 	}
 
 	@Override
