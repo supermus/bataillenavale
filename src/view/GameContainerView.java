@@ -15,7 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import model.Game;
+import model.Orientation;
 import controller.GameController;
+
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -49,6 +51,7 @@ public class GameContainerView extends AbstractView implements Observer {
 	private JComboBox comboBox_1;
 	private JTextField textField;
 	private JLabel lblNewLabel;
+	private Orientation orientation;
 
 	public GameContainerView(GameController c) {
 		super(c);
@@ -144,8 +147,14 @@ public class GameContainerView extends AbstractView implements Observer {
 		add(comboBox);
 		
 		comboBox_1 = new JComboBox();
+		comboBox_1.setMaximumRowCount(2);
 		comboBox_1.setBounds(42, 605, 120, 22);
 		add(comboBox_1);
+		for(Orientation orien : Orientation.values()){
+			comboBox_1.addItem(orien);
+		}
+		
+		
 		
 		textField = new JTextField();
 		textField.setBounds(42, 640, 116, 22);
@@ -168,7 +177,7 @@ public class GameContainerView extends AbstractView implements Observer {
 		lblTypeDeBateau.setBounds(174, 570, 102, 16);
 		add(lblTypeDeBateau);
 		
-		JLabel lblHorientation = new JLabel("Horientation");
+		JLabel lblHorientation = new JLabel("Orientation");
 		lblHorientation.setBounds(180, 608, 83, 16);
 		add(lblHorientation);
 		
