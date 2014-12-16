@@ -16,6 +16,8 @@ import javax.swing.SwingConstants;
 
 import model.Game;
 import controller.GameController;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 public class GameContainerView extends AbstractView implements Observer {
 	
@@ -42,9 +44,11 @@ public class GameContainerView extends AbstractView implements Observer {
 	private JLabel labelScoreRight;
 	private JLabel labelScoreValueRight;
 	private JLabel labelShotValueRight;
-	private JLabel labelBoats;
-	private JList listBoat;
-	private JButton buttonPlaceBoat;
+	private JLabel lblEntrerLesCoordonnes;
+	private JComboBox comboBox;
+	private JComboBox comboBox_1;
+	private JTextField textField;
+	private JLabel lblNewLabel;
 
 	public GameContainerView(GameController c) {
 		super(c);
@@ -130,19 +134,47 @@ public class GameContainerView extends AbstractView implements Observer {
 		labelShotValueRight = new JLabel("0 (dont 0 rat\u00E9s)");
 		labelShotValueRight.setBounds(640, 486, 161, 14);
 		add(labelShotValueRight);
-
-		labelBoats = new JLabel("Bateaux :");
-		labelBoats.setHorizontalAlignment(SwingConstants.CENTER);
-		labelBoats.setBounds(42, 570, 60, 139);
-		add(labelBoats);
-
-		listBoat = new JList();
-		listBoat.setBounds(112, 570, 206, 139);
-		add(listBoat);
-
-		buttonPlaceBoat = new JButton("Placer");
-		buttonPlaceBoat.setBounds(338, 606, 91, 67);
-		add(buttonPlaceBoat);
+		
+		lblEntrerLesCoordonnes = new JLabel("Entrer les coordonn\u00E9es de vos bateaux :");
+		lblEntrerLesCoordonnes.setBounds(42, 538, 264, 16);
+		add(lblEntrerLesCoordonnes);
+		
+		comboBox = new JComboBox();
+		comboBox.setBounds(42, 567, 120, 22);
+		add(comboBox);
+		
+		comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(42, 605, 120, 22);
+		add(comboBox_1);
+		
+		textField = new JTextField();
+		textField.setBounds(42, 640, 116, 22);
+		add(textField);
+		textField.setColumns(10);
+		
+		lblNewLabel = new JLabel("Coordonn\u00E9e de la 1er case");
+		lblNewLabel.setBounds(170, 643, 161, 16);
+		add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Valider");
+		btnNewButton.setBounds(42, 675, 97, 25);
+		add(btnNewButton);
+		
+		JButton btnRecommencerLeDernier = new JButton("Recommencer le dernier bateau");
+		btnRecommencerLeDernier.setBounds(180, 675, 243, 25);
+		add(btnRecommencerLeDernier);
+		
+		JLabel lblTypeDeBateau = new JLabel("Type de bateau");
+		lblTypeDeBateau.setBounds(174, 570, 102, 16);
+		add(lblTypeDeBateau);
+		
+		JLabel lblHorientation = new JLabel("Horientation");
+		lblHorientation.setBounds(180, 608, 83, 16);
+		add(lblHorientation);
+		
+		JButton btnNewButton_1 = new JButton("D\u00E9marrer la partie");
+		btnNewButton_1.setBounds(452, 675, 153, 25);
+		add(btnNewButton_1);
 	}
 
 	@Override

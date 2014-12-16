@@ -21,8 +21,7 @@ public class Game extends Observable {
 	private Timer timeCount;
 	private int time;
 	private int tour;
-	private Grid gridPlayer1;
-	private Grid gridPlayer2;
+
 	
 
 	
