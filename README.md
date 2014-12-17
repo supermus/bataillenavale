@@ -1,6 +1,6 @@
 bataillenavale
 ==============
-La classe radar n'a pas �t� supprim�
+La classe radar n'a pas été supprimé
 Pour me part je l'ai toujour dans le projet
 
 Note Gameconfigview 
@@ -13,6 +13,8 @@ Type de partie mode demo
 
 Type de bataille
 Taille de la grille 
-Difficulté de l'ia
+DifficultÃ© de l'ia
 Nb de bateau
 Groupe facebook :p  : https://www.facebook.com/groups/316566555197358/
+faudra une explication!!! je ne comprends plus rien! il ya des changements sur les classes du models faut prevenir ou au moins expliquer (comme par exemple pourquoi vous avez changez le systeme d'orientation ) comme ca on pourra  travailler ensemble
+meme nous on aimerai travailler 
