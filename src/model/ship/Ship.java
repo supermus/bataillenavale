@@ -53,19 +53,6 @@ public abstract class Ship {
 		this.origin = origin;
 		this.size = size;
 		this.orientation = orientation;
-//		switch (orientation) {
-//		case Horizontale:
-			
-//			for (int i = 0; i < size; i++) {
-//				state.put(new Position(origin.getX(),origin.getY()-i), true);
-//			}
-//			break;
-//		case Verticale:
-//			for (int i = 0; i < size; i++) {
-//				state.put(new Position(origin.getX(),origin.getY()+i), true);
-//			}
-//			break;
-//		}
 	}
 	
 

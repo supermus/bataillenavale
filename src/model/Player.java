@@ -13,11 +13,7 @@ public abstract class Player {
 	private int 	hits; 	// compteur coups réussis
 	private int 	miss; 	// compteur coups ratés
 	private Grid 	grid; 	// grille
-	private Orientation orientation;
-	private AircraftCarrier aircraftCarrier;
-	private Ironclad ironclad;
-	private Submarine submarine;
-	private Zodiac zodiac;
+	
 	
 	/**
 	 * Constructeur principal de Player
@@ -39,22 +35,22 @@ public abstract class Player {
 		{
 		case Horizontale :
 			if (name == "AircraftCarrier"){
-				if (grid.getSize()-origin.getX() <= 5 )
+				if (grid.getSize()-origin.getX() <= AircraftCarrier.SHIP_SIZE )
 					grid.addShip(new AircraftCarrier(origin,orientation) );	
 			}
 			
 			if (name == "IronClad"){
-				if (grid.getSize()-origin.getX() <= 3)
+				if (grid.getSize()-origin.getX() <= Ironclad.SHIP_SIZE)
 					grid.addShip(new Ironclad(origin,orientation) );
 			}
 				
 			if (name == "Submarine"){
-				if (grid.getSize()-origin.getX() <= 4)
+				if (grid.getSize()-origin.getX() <= Submarine.SHIP_SIZE)
 					grid.addShip(new Submarine(origin,orientation) );
 			}
 					
 			if (name == "Zodiac"){
-				if (grid.getSize()-origin.getX() <= 2)
+				if (grid.getSize()-origin.getX() <= Zodiac.SHIP_SIZE)
 					grid.addShip(new Zodiac(origin,orientation) );
 				}
 			//Ajout des coordonnées du bateau

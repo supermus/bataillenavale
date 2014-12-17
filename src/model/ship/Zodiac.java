@@ -6,7 +6,7 @@ import model.Position;
 public class Zodiac extends Ship {
 	
 	private final static String SHIP_NAME = "Zodiac";
-	private final static int SHIP_SIZE = 2;
+	public final static int SHIP_SIZE = 2;
 	
 	/**
 	 * Constructeur principal de Zodiac

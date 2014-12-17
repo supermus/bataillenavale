@@ -6,7 +6,7 @@ import model.Position;
 public class Ironclad extends Ship {
 
 	private final static String SHIP_NAME = "Cuirassé furtif";
-	private final static int SHIP_SIZE = 3;
+	public final static int SHIP_SIZE = 3;
 	
 	/**
 	 * Constructeur principal de IronClad
