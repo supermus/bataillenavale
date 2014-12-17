@@ -16,5 +16,5 @@ Taille de la grille
 DifficultÃ© de l'ia
 Nb de bateau
 Groupe facebook :p  : https://www.facebook.com/groups/316566555197358/
-faudra une explication!!! je ne comprends plus rien! il ya des changements sur les classes du models faut prevenir ou au moins expliquer (comme par exemple pourquoi vous avez changez le systeme d'orientation ) comme ca on pourra  travailler ensemble
+faudra une explication!!! je ne comprends plus rien! il ya des changements sur les classes du models faut prevenir ou au moins expliquer (comme par exemple pourquoi vous avez changé le systeme d'orientation ) comme ca on pourra  travailler ensemble
 meme nous on aimerai travailler 
