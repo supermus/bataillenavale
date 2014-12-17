@@ -29,8 +29,9 @@ public abstract class Player {
 		this.status = "inconnu";
 	}
 	
-	public void placeBoat(String name, Position origin, int size, Orientation orientation){
+	public boolean placeBoat(String name, Position origin, int size, Orientation orientation){
 		
+		boolean boat=true; 
 		switch(orientation)
 		{
 		case Horizontale :
@@ -54,10 +55,23 @@ public abstract class Player {
 					grid.addShip(new Zodiac(origin,orientation) );
 				}
 			//Ajout des coordonnées du bateau
-			for (int i = 0; i < size; i++) {
-				grid.returnLastShip().setStates(new Position(origin.getX()+i,origin.getY()));	
+			for(int i=0 ; i<size && boat==true ; i++){
+				if(grid.isship(new Position(origin.getX()+i,origin.getY()))){
+					
+				}
+				else{
+					boat=false;
+				}
+					
 			}
-		break;
+			if (boat){
+				for (int i = 0; i < size; i++) {	
+					grid.returnLastShip().setStates(new Position(origin.getX()+i,origin.getY()));
+				}
+				
+			}
+			
+			break;
 		
 			
 		case Verticale :
@@ -82,12 +96,24 @@ public abstract class Player {
 				if (grid.getSize()-origin.getY() <= 2)
 					grid.addShip(new Zodiac(origin,orientation) );
 				}
-			
-			for (int i = 0; i < size; i++) {
-				grid.returnLastShip().setStates(new Position(origin.getX(),origin.getY()+i));	
+			for(int i=0 ; i<size && boat==true ; i++){
+				if(grid.isship(new Position(origin.getX(),origin.getY()+i))){
+					
+				}
+				else{
+					boat=false;
+				}
+					
+			}
+			if (boat){
+				for (int i = 0; i < size; i++) {	
+					grid.returnLastShip().setStates(new Position(origin.getX(),origin.getY()+i));
+				}
+				
 			}
 			break;
 		}
+		return boat;
 		
 				
 		
