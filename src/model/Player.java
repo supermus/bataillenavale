@@ -35,78 +35,81 @@ public abstract class Player {
 		switch(orientation)
 		{
 		case Horizontale :
-			if (name == "AircraftCarrier"){
-				if (grid.getSize()-origin.getX() <= AircraftCarrier.SHIP_SIZE )
-					grid.addShip(new AircraftCarrier(origin,orientation) );	
-			}
-			
-			if (name == "IronClad"){
-				if (grid.getSize()-origin.getX() <= Ironclad.SHIP_SIZE)
-					grid.addShip(new Ironclad(origin,orientation) );
-			}
-				
-			if (name == "Submarine"){
-				if (grid.getSize()-origin.getX() <= Submarine.SHIP_SIZE)
-					grid.addShip(new Submarine(origin,orientation) );
-			}
-					
-			if (name == "Zodiac"){
-				if (grid.getSize()-origin.getX() <= Zodiac.SHIP_SIZE)
-					grid.addShip(new Zodiac(origin,orientation) );
-				}
-			//Ajout des coordonnées du bateau
+			//Vérification si un bateau existe deja à cette position 
 			for(int i=0 ; i<size && boat==true ; i++){
 				if(!grid.isship(new Position(origin.getX()+i,origin.getY()))){
 					boat=false;
 				}
-					
-			}
-			if (boat){
-				for (int i = 0; i < size; i++) {	
-					grid.returnLastShip().setStates(new Position(origin.getX()+i,origin.getY()));
-				}	
-			}
-			
-			break;
-		
-			
-		case Verticale :
-			if (name == "AircraftCarrier"){
-				if (grid.getSize()-origin.getY() <= 5 ){
-					grid.addShip(new AircraftCarrier(origin,orientation) );
-				}
+			}	
+				
+			if (name == "AircraftCarrier" && boat==true){
+				if (grid.getSize()-origin.getX() <= AircraftCarrier.SHIP_SIZE )
+					grid.addShip(new AircraftCarrier(origin,orientation) );	
 			}
 			
-			if (name == "IronClad"){
-				if (grid.getSize()-origin.getY() <= 3)
+			if (name == "IronClad" && boat==true){
+				if (grid.getSize()-origin.getX() <= Ironclad.SHIP_SIZE)
 					grid.addShip(new Ironclad(origin,orientation) );
-			
 			}
 				
-			if (name == "Submarine"){
-				if (grid.getSize()-origin.getY() <= 4)
+			if (name == "Submarine" && boat==true){
+				if (grid.getSize()-origin.getX() <= Submarine.SHIP_SIZE)
 					grid.addShip(new Submarine(origin,orientation) );
 			}
 					
-			if (name == "Zodiac"){
-				if (grid.getSize()-origin.getY() <= 2)
+			if (name == "Zodiac" && boat==true){
+				if (grid.getSize()-origin.getX() <= Zodiac.SHIP_SIZE)
 					grid.addShip(new Zodiac(origin,orientation) );
 				}
+			
+			//Ajout des position du nouveau bateau		
+			for (int i = 0; i < size && boat==true; i++) {	
+				grid.returnLastShip().setStates(new Position(origin.getX()+i,origin.getY()));
+				}	
+			
+			break;
+		
+		
+			
+		case Verticale :
+			//Vérification si un bateau existe deja à cette position 
 			for(int i=0 ; i<size && boat==true ; i++){
 				if(!grid.isship(new Position(origin.getX(),origin.getY()+i))){
 					boat=false;
 				}			
 			}
-			if (boat){
-				for (int i = 0; i < size; i++) {	
-					grid.returnLastShip().setStates(new Position(origin.getX(),origin.getY()+i));
+			
+			if (name == "AircraftCarrier" && boat==true){
+				if (grid.getSize()-origin.getY() <= 5 ){
+					grid.addShip(new AircraftCarrier(origin,orientation) );
+				}
+			}
+			
+			if (name == "IronClad" && boat==true){
+				if (grid.getSize()-origin.getY() <= 3)
+					grid.addShip(new Ironclad(origin,orientation) );
+			
+			}
+				
+			if (name == "Submarine" && boat==true){
+				if (grid.getSize()-origin.getY() <= 4)
+					grid.addShip(new Submarine(origin,orientation) );
+			}
+					
+			if (name == "Zodiac" && boat==true){
+				if (grid.getSize()-origin.getY() <= 2)
+					grid.addShip(new Zodiac(origin,orientation) );
+				}
+			//Ajout des position du nouveau bateau
+			for (int i = 0; i < size && boat==true; i++) {	
+				grid.returnLastShip().setStates(new Position(origin.getX(),origin.getY()+i));
 				}
 				
-			}
 			break;
 		}
 		return boat;
 		
+	}	
 				
 		
 //		aircraftCarrier = new AircraftCarrier(origin,orientation);
@@ -123,7 +126,7 @@ public abstract class Player {
 //			}
 //			break;
 //		}
-	}
+	
 	
 	@Override
 	public String toString() {
