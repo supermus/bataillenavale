@@ -49,7 +49,7 @@ public class GameContainerView extends AbstractView implements Observer {
 	private JLabel labelShotValueRight;
 	private JLabel lblEntrerLesCoordonnes;
 	private JComboBox comboBox;
-	private JComboBox comboBox_1;
+	public JComboBox comboBox_1;
 	private Orientation orientation;
 
 	public GameContainerView(GameController c) {
@@ -149,9 +149,7 @@ public class GameContainerView extends AbstractView implements Observer {
 		comboBox_1.setMaximumRowCount(2);
 		comboBox_1.setBounds(42, 605, 120, 22);
 		add(comboBox_1);
-		for(Orientation orien : Orientation.values()){
-			comboBox_1.addItem(orien);
-		}
+	
 		
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.setBounds(42, 675, 97, 25);
@@ -196,7 +194,7 @@ public class GameContainerView extends AbstractView implements Observer {
 		this.labelScoreValueLeft.setText( Integer.toString(game.getPlayer().get(0).getScore()));
 		this.labelScoreValueRight.setText(Integer.toString(game.getPlayer().get(1).getScore()));
 		this.labelTime.setText((game.getTime()/60)+":"+ (game.getTime()%60));
-		this.labelTurn.setText(Integer.toString(game.getTurn()));
+		this.labelTurn.setText("Tour : "+ game.getTurn());
 		
 		
 	}

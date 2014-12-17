@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 
 import model.Game;
+import model.Orientation;
+import view.GameConfigView;
 import view.GameContainerView;
 
 public class GameController extends AbstractController {
@@ -13,6 +15,11 @@ public class GameController extends AbstractController {
 		this.game = g;
 		this.view = new GameContainerView(this);
 		((GameContainerView)this.view).setModel(this.game);
+		
+		GameContainerView containerView = (GameContainerView) view;
+		for(Orientation orien : Orientation.values()){
+			containerView.comboBox_1.addItem(orien);
+		}
 	}
 
 	@Override
