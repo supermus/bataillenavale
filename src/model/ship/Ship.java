@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import model.Grid;
 import model.Orientation;
 import model.Position;
 
@@ -13,7 +14,38 @@ public abstract class Ship {
 	private int size; //La taille du navire
 	private Position origin; //position de la  premiere case du navire
 	private Orientation orientation; // orientation du navire top right bot left
-	private HashMap<Position, Boolean> state; //Position(String)  et l'etat(Boolean true=pas touché false=touché) de chaque case du navire 
+	private HashMap<Position, Boolean> state = new HashMap<Position, Boolean>(); //Position(String)  et l'etat(Boolean true=pas touché false=touché) de chaque case du navire 
+	
+//	public Ship(String name, Position origin, int size, Orientation orientation)
+//	{
+//		this.name = name;
+//		this.origin = origin;
+//		this.size = size;
+//		this.orientation = orientation;
+//		state=new HashMap<Position, Boolean>();
+//		switch (orientation) {
+//		case BOT:
+//			for (int i = 0; i < size; i++) {
+//				state.put(new Position(origin.getX(),origin.getY()-i), true);
+//			}
+//			break;
+//		case TOP:
+//			for (int i = 0; i < size; i++) {
+//				state.put(new Position(origin.getX(),origin.getY()+i), true);
+//			}
+//			break;
+//		case LEFT:
+//			for (int i = 0; i < size; i++) {
+//				state.put(new Position(origin.getX()-i,origin.getY()), true);
+//			}
+//			break;
+//		case RIGHT:
+//			for (int i = 0; i < size; i++) {
+//				state.put(new Position(origin.getX()+i,origin.getY()-i), true);
+//			}
+//			break;
+//		}
+//	}
 	
 	public Ship(String name, Position origin, int size, Orientation orientation)
 	{
@@ -21,30 +53,22 @@ public abstract class Ship {
 		this.origin = origin;
 		this.size = size;
 		this.orientation = orientation;
-		state=new HashMap<Position, Boolean>();
-		switch (orientation) {
-		case BOT:
-			for (int i = 0; i < size; i++) {
-				state.put(new Position(origin.getX(),origin.getY()-i), true);
-			}
-			break;
-		case TOP:
-			for (int i = 0; i < size; i++) {
-				state.put(new Position(origin.getX(),origin.getY()+i), true);
-			}
-			break;
-		case LEFT:
-			for (int i = 0; i < size; i++) {
-				state.put(new Position(origin.getX()-i,origin.getY()), true);
-			}
-			break;
-		case RIGHT:
-			for (int i = 0; i < size; i++) {
-				state.put(new Position(origin.getX()+i,origin.getY()-i), true);
-			}
-			break;
-		}
+//		switch (orientation) {
+//		case Horizontale:
+			
+//			for (int i = 0; i < size; i++) {
+//				state.put(new Position(origin.getX(),origin.getY()-i), true);
+//			}
+//			break;
+//		case Verticale:
+//			for (int i = 0; i < size; i++) {
+//				state.put(new Position(origin.getX(),origin.getY()+i), true);
+//			}
+//			break;
+//		}
 	}
+	
+
 	
 	
 	public int getSize()

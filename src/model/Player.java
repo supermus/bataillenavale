@@ -1,6 +1,7 @@
 package model;
 
 import java.util.*;
+
 import model.ship.*;
 
 public abstract class Player {
@@ -12,6 +13,11 @@ public abstract class Player {
 	private int 	hits; 	// compteur coups réussis
 	private int 	miss; 	// compteur coups ratés
 	private Grid 	grid; 	// grille
+	private Orientation orientation;
+	private AircraftCarrier aircraftCarrier;
+	private Ironclad ironclad;
+	private Submarine submarine;
+	private Zodiac zodiac;
 	
 	/**
 	 * Constructeur principal de Player
@@ -25,6 +31,84 @@ public abstract class Player {
 		this.miss = 0;
 		this.grid = g;
 		this.status = "inconnu";
+	}
+	
+	public void placeBoat(String name, Position origin, int size, Orientation orientation){
+		
+		switch(orientation)
+		{
+		case Horizontale :
+			if (name == "AircraftCarrier"){
+				if (grid.getSize()-origin.getX() <= 5 )
+					grid.addShip(new AircraftCarrier(origin,orientation) );	
+			}
+			
+			if (name == "IronClad"){
+				if (grid.getSize()-origin.getX() <= 3)
+					grid.addShip(new Ironclad(origin,orientation) );
+			}
+				
+			if (name == "Submarine"){
+				if (grid.getSize()-origin.getX() <= 4)
+					grid.addShip(new Submarine(origin,orientation) );
+			}
+					
+			if (name == "Zodiac"){
+				if (grid.getSize()-origin.getX() <= 2)
+					grid.addShip(new Zodiac(origin,orientation) );
+				}
+			//Ajout des coordonnées du bateau
+			for (int i = 0; i < size; i++) {
+				grid.returnLastShip().setStates(new Position(origin.getX()+i,origin.getY()));	
+			}
+		break;
+		
+			
+		case Verticale :
+			if (name == "AircraftCarrier"){
+				if (grid.getSize()-origin.getY() <= 5 ){
+					grid.addShip(new AircraftCarrier(origin,orientation) );
+				}
+			}
+			
+			if (name == "IronClad"){
+				if (grid.getSize()-origin.getY() <= 3)
+					grid.addShip(new Ironclad(origin,orientation) );
+			
+			}
+				
+			if (name == "Submarine"){
+				if (grid.getSize()-origin.getY() <= 4)
+					grid.addShip(new Submarine(origin,orientation) );
+			}
+					
+			if (name == "Zodiac"){
+				if (grid.getSize()-origin.getY() <= 2)
+					grid.addShip(new Zodiac(origin,orientation) );
+				}
+			
+			for (int i = 0; i < size; i++) {
+				grid.returnLastShip().setStates(new Position(origin.getX(),origin.getY()+i));	
+			}
+			break;
+		}
+		
+				
+		
+//		aircraftCarrier = new AircraftCarrier(origin,orientation);
+//		switch (orientation) {
+//		case Horizontale:
+//			for (int i = 0; i < size; i++) {
+//				state.put(new Position(origin.getX(),origin.getY()-i), true);
+//				
+//			}
+//			break;
+//		case Verticale:
+//			for (int i = 0; i < size; i++) {
+//				state.put(new Position(origin.getX(),origin.getY()+i), true);
+//			}
+//			break;
+//		}
 	}
 	
 	@Override

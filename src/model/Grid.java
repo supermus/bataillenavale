@@ -21,6 +21,14 @@ public class Grid {
 		
 	}
 	
+	
+	public void addShip(Ship ship){
+		ships.add(ship);
+	}
+	
+	public Ship returnLastShip(){
+		return ships.get(ships.size()-1);
+	}
 
 
 	public ArrayList<Ship> getShip() {
