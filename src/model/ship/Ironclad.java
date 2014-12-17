@@ -5,7 +5,7 @@ import model.Position;
 
 public class Ironclad extends Ship {
 
-	private final static String SHIP_NAME = "Cuirassé furtif";
+	public final static String SHIP_NAME = "Cuirassé furtif";
 	public final static int SHIP_SIZE = 3;
 	
 	/**

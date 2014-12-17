@@ -5,7 +5,7 @@ import model.Position;
 
 public class AircraftCarrier extends Ship {
 
-	private final static String SHIP_NAME = "Porte-avion";
+	public final static String SHIP_NAME = "Porte-avion";
 	public final static int SHIP_SIZE = 5;
 
 	/**

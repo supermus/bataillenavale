@@ -14,9 +14,9 @@ public class Game extends Observable {
 	private ArrayList<Player> player;
 	private Battle mode;
 	private int mapSize;
-	private int nbSousMarin;
-	private int nbPorteAvion;
-	private int nbCuirassésFurtif;
+	private int nbSubmarine;
+	private int nbAircraftCarrier;
+	private int nbIronclad;
 	private int nbZodiac;
 	private Timer timeCount;
 	private int time;
@@ -25,14 +25,13 @@ public class Game extends Observable {
 	
 
 	
-	public Game(ArrayList<Player> player, Battle mode, int mapSize,int nbSousMarin,int nbPorteAvion, int nbCuirassésFurtif, int nbZodiac  )
-	{
+	public Game(ArrayList<Player> player, Battle mode, int mapSize,int nbSubmarine,int nbAircraftCarrier, int nbIronclad, int nbZodiac  ){
 		this.player = player;
 		this.mode = mode;
 		this.mapSize = mapSize;
-		this.nbSousMarin = nbSousMarin;
-		this.nbCuirassésFurtif = nbCuirassésFurtif;
-		this.nbPorteAvion = nbPorteAvion;
+		this.nbSubmarine = nbSubmarine;
+		this.nbIronclad = nbIronclad;
+		this.nbAircraftCarrier = nbAircraftCarrier;
 		this.nbZodiac = nbZodiac;
 		this.time = 0;
 		this.tour = 0;
@@ -46,9 +45,24 @@ public class Game extends Observable {
 		
 	}
 	
-	public void start()
-	{
+   public void start(){
 		timeCount.start();
+	}
+	
+   public  int getNbZodiac(){
+	   return nbZodiac;
+   }
+   
+   public int getNbIronclad(){
+	   return nbIronclad;
+    }
+    
+   public int getNbAircraftCarrier(){
+    	return nbAircraftCarrier;
+    }
+    
+   public int getNbSubmarine(){
+		return nbSubmarine;
 	}
 	
 	public int getTurn(){
@@ -59,32 +73,26 @@ public class Game extends Observable {
 		return time;
 	}
 	
-	public void checkVictory()
-	{
+	public void checkVictory(){
 		
 	}
 	
-	public void end()
-	{
+	public void end(){
 		timeCount.stop();
 	}
-	public ArrayList<Player> getPlayer()
-	{
+	public ArrayList<Player> getPlayer(){
 		return player;
 	}
 	
 	public void setPlayer(ArrayList<Player>player){
-		
 		this.player = player;
 	}
 	
-	public int getMapSize()
-	{
+	public int getMapSize(){
 		return mapSize;
 	}
 	
-	public void setMapSize(int mapSize)
-	{
+	public void setMapSize(int mapSize){
 		this.mapSize = mapSize;
 	}
 

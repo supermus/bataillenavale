@@ -48,7 +48,7 @@ public class GameContainerView extends AbstractView implements Observer {
 	private JLabel labelScoreValueRight;
 	private JLabel labelShotValueRight;
 	private JLabel lblEntrerLesCoordonnes;
-	private JComboBox comboBox;
+	public JComboBox comboBox;
 	public JComboBox comboBox_1;
 	private Orientation orientation;
 
