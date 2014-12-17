@@ -62,6 +62,7 @@ public abstract class Ship {
 	{
 		return this.size;
 	}
+	
 	//si la position choisit contient un navire
 	
 	public boolean hasPosition(int x, int y)

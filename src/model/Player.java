@@ -56,10 +56,7 @@ public abstract class Player {
 				}
 			//Ajout des coordonnées du bateau
 			for(int i=0 ; i<size && boat==true ; i++){
-				if(grid.isship(new Position(origin.getX()+i,origin.getY()))){
-					
-				}
-				else{
+				if(!grid.isship(new Position(origin.getX()+i,origin.getY()))){
 					boat=false;
 				}
 					
@@ -67,8 +64,7 @@ public abstract class Player {
 			if (boat){
 				for (int i = 0; i < size; i++) {	
 					grid.returnLastShip().setStates(new Position(origin.getX()+i,origin.getY()));
-				}
-				
+				}	
 			}
 			
 			break;
@@ -97,13 +93,9 @@ public abstract class Player {
 					grid.addShip(new Zodiac(origin,orientation) );
 				}
 			for(int i=0 ; i<size && boat==true ; i++){
-				if(grid.isship(new Position(origin.getX(),origin.getY()+i))){
-					
-				}
-				else{
+				if(!grid.isship(new Position(origin.getX(),origin.getY()+i))){
 					boat=false;
-				}
-					
+				}			
 			}
 			if (boat){
 				for (int i = 0; i < size; i++) {	
