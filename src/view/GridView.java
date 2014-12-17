@@ -17,6 +17,7 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 
 	private JLabel[][] cells;
 	private boolean isHuman;
+	private int mapSize;
 
 	/**
 	 * Create the panel.
@@ -24,6 +25,7 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 	public GridView() {
 		super(new GameController(null));
 		isHuman = false;
+		mapSize = 2;
 		setLayout(new GridLayout(2, 2, 1, 1));
 
 		JButton btnNewButton_1 = new JButton();
@@ -43,6 +45,7 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 	public GridView(GameController c, int mapSize, boolean showShips, boolean isHuman) {
 		super(c);
 		this.isHuman = isHuman;
+		this.mapSize = mapSize;
 		setLayout(new GridLayout(mapSize, mapSize, 1, 1));
 		cells = new JLabel[mapSize][mapSize];
 		for(int i = 0; i<mapSize; i++) {
@@ -65,7 +68,7 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 		Image newimg = new ImageIcon("assets/hit.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH);
 		cells[0][0].setIcon(new ImageIcon(newimg));
 
-		Image newimg2 = new ImageIcon("assets/h_2_2.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH);
+		Image newimg2 = new ImageIcon("assets/boat1.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH);
 		cells[0][1].setIcon(new ImageIcon(newimg2));
 	}
 
@@ -84,7 +87,9 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 	public void mouseClicked(MouseEvent arg0) {
 		if(!isHuman) {
 			// TODO Auto-generated method stub
-			System.out.println(arg0.getSource().toString());
+			JLabel l = (JLabel) arg0.getSource();
+			System.out.println(l.getLocation().getX()/(mapSize*4) + ";" + l.getLocation().getY()/(mapSize*4));
+
 		}
 
 	}
