@@ -1,20 +1,19 @@
-bataillenavale
+﻿bataillenavale
 ==============
-La classe radar n'a pas été supprimé
-Pour me part je l'ai toujour dans le projet
 
-Note Gameconfigview 
+Walid
+	-IA
+	-Modificaton methode de la class grid
+	- Mode classique
+mus
+	- Design menuView
+	- Controller ScoreController
+	- code des différents mode
 
-Nom du player
-Type de partie mode demo
-		mode 1 jouer
-		mode 2 jouer 
+raph
+	-finir gridView
+	-appelle ojbet game
 
-
-Type de bataille
-Taille de la grille 
-DifficultÃ© de l'ia
-Nb de bateau
-Groupe facebook :p  : https://www.facebook.com/groups/316566555197358/
-faudra une explication!!! je ne comprends plus rien! il ya des changements sur les classes du models faut prevenir ou au moins expliquer (comme par exemple pourquoi vous avez changé le systeme d'orientation ) comme ca on pourra  travailler ensemble
-
+mickael
+	-finir l'affichage gameContainerView
+	- placement des bateaux
