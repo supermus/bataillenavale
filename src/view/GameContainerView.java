@@ -189,17 +189,23 @@ public class GameContainerView extends AbstractView implements Observer {
 		spinner_1.setBounds(118, 640, 44, 22);
 		add(spinner_1);
 		
-		
+		// Chargement données initiales du modèle
+		this.labelPlayerLeft.setText(game.getPlayer().get(0).getNom());
+		this.labelPlayerRight.setText(game.getPlayer().get(1).getNom());
+		this.labelTurn.setText("Tour : "+ game.getTurn());
+		this.labelShotValueLeft.setText(game.getPlayer().get(0).getHits() +" dont " + game.getPlayer().get(0).getMiss()+" ratés");
+		this.labelShotValueRight.setText(game.getPlayer().get(1).getHits() +" dont " + game.getPlayer().get(1).getMiss() +" ratés");
+		this.labelScoreValueLeft.setText(Integer.toString(game.getPlayer().get(0).getScore()));
+		this.labelScoreValueRight.setText(Integer.toString(game.getPlayer().get(1).getScore()));
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		//System.out.println(arg0.toString());
-		this.labelPlayerLeft.setText(game.getPlayer().get(0).getNom());
-		this.labelPlayerRight.setText(game.getPlayer().get(1).getNom());
-		this.labelShotValueLeft.setText(game.getPlayer().get(0).getHits() +" dont " +game.getPlayer().get(0).getMiss()+" raté");
-		this.labelShotValueRight.setText(game.getPlayer().get(1).getHits() +" dont "+game.getPlayer().get(1).getMiss() +" raté");
-		this.labelScoreValueLeft.setText( Integer.toString(game.getPlayer().get(0).getScore()));
+		
+		this.labelShotValueLeft.setText(game.getPlayer().get(0).getHits() +" dont " + game.getPlayer().get(0).getMiss()+" ratés");
+		this.labelShotValueRight.setText(game.getPlayer().get(1).getHits() +" dont " + game.getPlayer().get(1).getMiss() +" ratés");
+		this.labelScoreValueLeft.setText(Integer.toString(game.getPlayer().get(0).getScore()));
 		this.labelScoreValueRight.setText(Integer.toString(game.getPlayer().get(1).getScore()));
 		this.labelTime.setText((game.getTime()/60)+":"+ (game.getTime()%60));
 		this.labelTurn.setText("Tour : "+ game.getTurn());

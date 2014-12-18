@@ -15,21 +15,16 @@ public class GameController extends AbstractController {
 	
 	Game game;
 	
-	public GameController(Game g){
+	public GameController(Game g)
+	{
 		this.game = g;
 		this.view = new GameContainerView(this, g);
-		
 		GameContainerView containerView = (GameContainerView) view;
-
-	
-	
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-		
+	public void actionPerformed(ActionEvent arg0)
+	{
 		
 	}
 	
