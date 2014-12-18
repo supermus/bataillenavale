@@ -79,11 +79,11 @@ public class GameContainerView extends AbstractView implements Observer {
 		menuButtonQuit = new JMenuItem("Quitter");
 		gameMenu.add(menuButtonQuit);
 
-		leftGrid = new GridView((GameController)controller, false);
+		leftGrid = new GridView((GameController)controller, false, 0);
 		leftGrid.setBounds(42, 75, 400, 400);
 
 		add(leftGrid);
-		rightGrid = new GridView((GameController)controller, false);
+		rightGrid = new GridView((GameController)controller, false, 1);
 		rightGrid.setBounds(582, 75, 400, 400);
 		add(rightGrid);
 
@@ -204,7 +204,8 @@ public class GameContainerView extends AbstractView implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		//System.out.println(arg0.toString());
-		
+		this.labelPlayerLeft.setText(game.getPlayer().get(0).getNom());
+		this.labelPlayerRight.setText(game.getPlayer().get(1).getNom());
 		this.labelShotValueLeft.setText(game.getPlayer().get(0).getHits() +" dont " + game.getPlayer().get(0).getMiss()+" ratés");
 		this.labelShotValueRight.setText(game.getPlayer().get(1).getHits() +" dont " + game.getPlayer().get(1).getMiss() +" ratés");
 		this.labelScoreValueLeft.setText(Integer.toString(game.getPlayer().get(0).getScore()));
