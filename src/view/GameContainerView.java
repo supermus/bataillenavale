@@ -53,8 +53,8 @@ public class GameContainerView extends AbstractView implements Observer {
 	private JLabel labelScoreValueRight;
 	private JLabel labelShotValueRight;
 	private JLabel lblEntrerLesCoordonnes;
-	public JComboBox comboBox;
-	public JComboBox comboBox_1;
+	public JComboBox comboBoxBoat;
+	public JComboBox comboBoxOrien;
 	public JButton btnValidate;
 	public JButton btnGameStart;
 	public JButton btnRemoveLastBoat;
@@ -151,14 +151,14 @@ public class GameContainerView extends AbstractView implements Observer {
 		lblEntrerLesCoordonnes.setBounds(42, 538, 264, 16);
 		add(lblEntrerLesCoordonnes);
 		
-		comboBox = new JComboBox();
-		comboBox.setBounds(42, 567, 120, 22);
-		add(comboBox);
+		comboBoxBoat = new JComboBox();
+		comboBoxBoat.setBounds(42, 567, 120, 22);
+		add(comboBoxBoat);
 		
-		comboBox_1 = new JComboBox();
-		comboBox_1.setMaximumRowCount(2);
-		comboBox_1.setBounds(42, 605, 120, 22);
-		add(comboBox_1);
+		comboBoxOrien = new JComboBox();
+		comboBoxOrien.setMaximumRowCount(2);
+		comboBoxOrien.setBounds(42, 605, 120, 22);
+		add(comboBoxOrien);
 	
 		
 		btnValidate = new JButton("Valider");
@@ -211,13 +211,13 @@ public class GameContainerView extends AbstractView implements Observer {
 		this.labelTurn.setText("Tour : "+ game.getTurn());
 		
 		for(Orientation orien : Orientation.values()){
-			comboBox_1.addItem(orien);
+			comboBoxOrien.addItem(orien);
 		}
 		
-		comboBox.addItem(AircraftCarrier.SHIP_NAME + "("+ game.getNbAircraftCarrier()+")");
-		comboBox.addItem(Ironclad.SHIP_NAME+"("+ game.getNbIronclad()+")");
-		comboBox.addItem(Submarine.SHIP_NAME+"("+ game.getNbSubmarine()+")");
-		comboBox.addItem(Zodiac.SHIP_NAME+"("+ game.getNbZodiac()+")");
+		comboBoxBoat.addItem(AircraftCarrier.SHIP_NAME + "("+ game.getNbAircraftCarrier()+")");
+		comboBoxBoat.addItem(Ironclad.SHIP_NAME+"("+ game.getNbIronclad()+")");
+		comboBoxBoat.addItem(Submarine.SHIP_NAME+"("+ game.getNbSubmarine()+")");
+		comboBoxBoat.addItem(Zodiac.SHIP_NAME+"("+ game.getNbZodiac()+")");
 		
 		
 	}

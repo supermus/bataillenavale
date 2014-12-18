@@ -31,10 +31,13 @@ public class GameController extends AbstractController {
 	public void actionPerformed(ActionEvent e)
 	{
 		GameContainerView containerView = (GameContainerView) view;
+		String boatType, orientation;
+		int x, y;
 		if(e.getSource()== containerView.btnValidate );
 		{
-			
-			game.getPlayer().get(0).placeBoat(name, origin, size, orientation);
+			//Extraction des données
+			boatType = containerView
+			//game.getPlayer().get(0).placeBoat(name, origin, size, orientation);
 		}
 		
 		if(e.getSource() == containerView.btnRemoveLastBoat){
