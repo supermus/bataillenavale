@@ -55,6 +55,9 @@ public class GameContainerView extends AbstractView implements Observer {
 	private JLabel lblEntrerLesCoordonnes;
 	public JComboBox comboBox;
 	public JComboBox comboBox_1;
+	public JButton btnValidate;
+	public JButton btnGameStart;
+	public JButton btnRemoveLastBoat;
 	private Orientation orientation;
 
 	public GameContainerView(GameController c, Game g) {
@@ -158,11 +161,11 @@ public class GameContainerView extends AbstractView implements Observer {
 		add(comboBox_1);
 	
 		
-		JButton btnValidate = new JButton("Valider");
+		btnValidate = new JButton("Valider");
 		btnValidate.setBounds(42, 675, 97, 25);
 		add(btnValidate);
 		
-		JButton btnRemoveLastBoat = new JButton("Recommencer le dernier bateau");
+		btnRemoveLastBoat = new JButton("Recommencer le dernier bateau");
 		btnRemoveLastBoat.setBounds(180, 675, 243, 25);
 		add(btnRemoveLastBoat);
 		
