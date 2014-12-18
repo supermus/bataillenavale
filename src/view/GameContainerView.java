@@ -199,7 +199,8 @@ public class GameContainerView extends AbstractView implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		//System.out.println(arg0.toString());
-		
+		this.labelPlayerLeft.setText(game.getPlayer().get(0).getNom());
+		this.labelPlayerRight.setText(game.getPlayer().get(1).getNom());
 		this.labelShotValueLeft.setText(game.getPlayer().get(0).getHits() +" dont " + game.getPlayer().get(0).getMiss()+" ratés");
 		this.labelShotValueRight.setText(game.getPlayer().get(1).getHits() +" dont " + game.getPlayer().get(1).getMiss() +" ratés");
 		this.labelScoreValueLeft.setText(Integer.toString(game.getPlayer().get(0).getScore()));
