@@ -28,9 +28,28 @@ public class GameController extends AbstractController {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0)
+	public void actionPerformed(ActionEvent e)
 	{
+		GameContainerView containerView = (GameContainerView) view;
+		String boatType, orientation;
+		int x, y;
+		if(e.getSource()== containerView.btnValidate );
+		{
+			//Extraction des données
+			boatType = containerView.comboBoxBoat.getName();
+			orientation = containerView.comboBoxOrien.getName();
+			x = (int) containerView.spinnerAxeX.getValue();
+			y = (int) containerView.spinnerAxeY.getValue();
+			//game.getPlayer().get(0).placeBoat(name, origin, size, orientation);
+		}
 		
+		if(e.getSource() == containerView.btnRemoveLastBoat){
+			
+		}
+		
+		if(e.getSource()== containerView.btnGameStart){
+			
+		}
 	}
 	
 
