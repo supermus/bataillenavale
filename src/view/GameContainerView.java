@@ -16,6 +16,10 @@ import javax.swing.SwingConstants;
 
 import model.Game;
 import model.Orientation;
+import model.ship.AircraftCarrier;
+import model.ship.Ironclad;
+import model.ship.Submarine;
+import model.ship.Zodiac;
 import controller.GameController;
 
 import javax.swing.JComboBox;
@@ -182,6 +186,8 @@ public class GameContainerView extends AbstractView implements Observer {
 		JSpinner spinner_1 = new JSpinner();
 		spinner_1.setBounds(118, 640, 44, 22);
 		add(spinner_1);
+		
+		
 	}
 
 	@Override
@@ -195,6 +201,15 @@ public class GameContainerView extends AbstractView implements Observer {
 		this.labelScoreValueRight.setText(Integer.toString(game.getPlayer().get(1).getScore()));
 		this.labelTime.setText((game.getTime()/60)+":"+ (game.getTime()%60));
 		this.labelTurn.setText("Tour : "+ game.getTurn());
+		
+		for(Orientation orien : Orientation.values()){
+			comboBox_1.addItem(orien);
+		}
+		
+		comboBox.addItem(AircraftCarrier.SHIP_NAME + "("+ game.getNbAircraftCarrier()+")");
+		comboBox.addItem(Ironclad.SHIP_NAME+"("+ game.getNbIronclad()+")");
+		comboBox.addItem(Submarine.SHIP_NAME+"("+ game.getNbSubmarine()+")");
+		comboBox.addItem(Zodiac.SHIP_NAME+"("+ game.getNbZodiac()+")");
 		
 		
 	}
