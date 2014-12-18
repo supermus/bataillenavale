@@ -11,13 +11,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import model.Game;
 import controller.GameController;
 
 public class GridView extends AbstractView implements Observer, MouseListener {
 
+	private static Game game;
 	private JLabel[][] cells;
 	private boolean isHuman;
-	private int mapSize;
 	
 	// Sprites pour les cases
 	private ImageIcon iconWater;
@@ -35,7 +36,6 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 	public GridView() {
 		super(new GameController(null));
 		isHuman = false;
-		mapSize = 2;
 		setLayout(new GridLayout(2, 2, 1, 1));
 
 		JButton btnNewButton_1 = new JButton();
@@ -58,43 +58,36 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 	 * @param mapSize entier donnant la taille de la grille
 	 * @param isHuman indique si la grille appartient à un humain
 	 */
-	public GridView(GameController c, int mapSize, boolean isHuman) {
+	public GridView(GameController c, boolean isHuman) {
 		super(c);
 		this.isHuman = isHuman;
-		this.mapSize = mapSize;
 		// chargement et redimensionnement des sprites;
-		this.iconWater = new ImageIcon(new ImageIcon("assets/water.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
-		this.iconHit = new ImageIcon(new ImageIcon("assets/hit.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
-		this.iconMiss = new ImageIcon(new ImageIcon("assets/miss.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
-		this.iconBoat1 = new ImageIcon(new ImageIcon("assets/boat1.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
-		this.iconBoat2 = new ImageIcon(new ImageIcon("assets/boat2.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
-		this.iconBoat3 = new ImageIcon(new ImageIcon("assets/boat3.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
-		this.iconBoat4 = new ImageIcon(new ImageIcon("assets/boat4.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
-		this.iconBoat5 = new ImageIcon(new ImageIcon("assets/boat5.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
-		setLayout(new GridLayout(mapSize, mapSize, 1, 1));
+		this.iconWater = new ImageIcon(new ImageIcon("assets/water.png").getImage().getScaledInstance(400/c.getGame().getMapSize(), 400/c.getGame().getMapSize(),  java.awt.Image.SCALE_SMOOTH));
+		this.iconHit = new ImageIcon(new ImageIcon("assets/hit.png").getImage().getScaledInstance(400/c.getGame().getMapSize(), 400/c.getGame().getMapSize(),  java.awt.Image.SCALE_SMOOTH));
+		this.iconMiss = new ImageIcon(new ImageIcon("assets/miss.png").getImage().getScaledInstance(400/c.getGame().getMapSize(), 400/c.getGame().getMapSize(),  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat1 = new ImageIcon(new ImageIcon("assets/boat1.png").getImage().getScaledInstance(400/c.getGame().getMapSize(), 400/c.getGame().getMapSize(),  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat2 = new ImageIcon(new ImageIcon("assets/boat2.png").getImage().getScaledInstance(400/c.getGame().getMapSize(), 400/c.getGame().getMapSize(),  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat3 = new ImageIcon(new ImageIcon("assets/boat3.png").getImage().getScaledInstance(400/c.getGame().getMapSize(), 400/c.getGame().getMapSize(),  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat4 = new ImageIcon(new ImageIcon("assets/boat4.png").getImage().getScaledInstance(400/c.getGame().getMapSize(), 400/c.getGame().getMapSize(),  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat5 = new ImageIcon(new ImageIcon("assets/boat5.png").getImage().getScaledInstance(400/c.getGame().getMapSize(), 400/c.getGame().getMapSize(),  java.awt.Image.SCALE_SMOOTH));
+		setLayout(new GridLayout(c.getGame().getMapSize(), c.getGame().getMapSize(), 1, 1));
 		
-		cells = new JLabel[mapSize][mapSize];
-		for(int i = 0; i<mapSize; i++) {
-			for(int j = 0; j<mapSize; j++)
+		cells = new JLabel[c.getGame().getMapSize()][c.getGame().getMapSize()];
+		for(int i = 0; i<c.getGame().getMapSize(); i++) {
+			for(int j = 0; j<c.getGame().getMapSize(); j++)
 			{
-				JLabel btn = new JLabel( iconWater );
-
+				JLabel btn = new JLabel(iconWater);
 				cells[i][j] = btn;
-				btn.addMouseListener(this);
-				add(btn);
+				btn.addMouseListener(this); // ajout écouteur
+				add(btn); // ajout à la GUI
 			}
 		}
-
-		Image newimg = new ImageIcon("assets/hit.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH);
-		cells[0][0].setIcon(new ImageIcon(newimg));
-
-		Image newimg2 = new ImageIcon("assets/boat1.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH);
-		cells[0][1].setIcon(new ImageIcon(newimg2));
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
 
+		
 
 	}
 
@@ -112,7 +105,8 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 		if(!isHuman) {
 			// TODO Auto-generated method stub
 			JLabel l = (JLabel) arg0.getSource();
-			System.out.println((int)(l.getLocation().getX()/(400/mapSize)) + ";" + (int)(l.getLocation().getY()/(400/mapSize)));
+			GameController gc = (GameController) controller;
+			System.out.println((int)(l.getLocation().getX()/(400/gc.getGame().getMapSize())) + ";" + (int)(l.getLocation().getY()/(400/gc.getGame().getMapSize())));
 
 		}
 
