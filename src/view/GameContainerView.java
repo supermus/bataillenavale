@@ -12,6 +12,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
 import model.Game;
@@ -157,13 +158,13 @@ public class GameContainerView extends AbstractView implements Observer {
 		add(comboBox_1);
 	
 		
-		JButton btnNewButton = new JButton("Valider");
-		btnNewButton.setBounds(42, 675, 97, 25);
-		add(btnNewButton);
+		JButton btnValidate = new JButton("Valider");
+		btnValidate.setBounds(42, 675, 97, 25);
+		add(btnValidate);
 		
-		JButton btnRecommencerLeDernier = new JButton("Recommencer le dernier bateau");
-		btnRecommencerLeDernier.setBounds(180, 675, 243, 25);
-		add(btnRecommencerLeDernier);
+		JButton btnRemoveLastBoat = new JButton("Recommencer le dernier bateau");
+		btnRemoveLastBoat.setBounds(180, 675, 243, 25);
+		add(btnRemoveLastBoat);
 		
 		JLabel lblTypeDeBateau = new JLabel("Type de bateau");
 		lblTypeDeBateau.setBounds(174, 570, 102, 16);
@@ -173,21 +174,23 @@ public class GameContainerView extends AbstractView implements Observer {
 		lblHorientation.setBounds(180, 608, 83, 16);
 		add(lblHorientation);
 		
-		JButton btnNewButton_1 = new JButton("D\u00E9marrer la partie");
-		btnNewButton_1.setBounds(452, 675, 153, 25);
-		add(btnNewButton_1);
+		JButton btnGameStart = new JButton("D\u00E9marrer la partie");
+		btnGameStart.setBounds(452, 675, 153, 25);
+		add(btnGameStart);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(42, 640, 53, 22);
-		add(spinner);
+		JSpinner spinnerAxeX = new JSpinner();
+		spinnerAxeX.setBounds(42, 640, 53, 22);
+		spinnerAxeX.setModel(new SpinnerNumberModel(1, 1, game.getMapSize(), 1));
+		add(spinnerAxeX);
 		
 		JLabel lblCoordonneerCase = new JLabel("Coordonn\u00E9e Horizontale/Verticale");
 		lblCoordonneerCase.setBounds(180, 646, 207, 16);
 		add(lblCoordonneerCase);
 		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setBounds(118, 640, 44, 22);
-		add(spinner_1);
+		JSpinner spinnerAxeY = new JSpinner();
+		spinnerAxeY.setBounds(118, 640, 44, 22);
+		spinnerAxeY.setModel(new SpinnerNumberModel(1, 1, game.getMapSize(), 1));
+		add(spinnerAxeY);
 		
 		// Chargement données initiales du modèle
 		this.update(null, null);
