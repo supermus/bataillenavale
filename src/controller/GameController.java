@@ -36,7 +36,10 @@ public class GameController extends AbstractController {
 		if(e.getSource()== containerView.btnValidate );
 		{
 			//Extraction des données
-			boatType = containerView
+			boatType = containerView.comboBoxBoat.getName();
+			orientation = containerView.comboBoxOrien.getName();
+			x = (int) containerView.spinnerAxeX.getValue();
+			y = (int) containerView.spinnerAxeY.getValue();
 			//game.getPlayer().get(0).placeBoat(name, origin, size, orientation);
 		}
 		

@@ -58,6 +58,8 @@ public class GameContainerView extends AbstractView implements Observer {
 	public JButton btnValidate;
 	public JButton btnGameStart;
 	public JButton btnRemoveLastBoat;
+	public JSpinner spinnerAxeX;
+	public JSpinner spinnerAxeY;
 	private Orientation orientation;
 
 	public GameContainerView(GameController c, Game g) {
@@ -181,7 +183,7 @@ public class GameContainerView extends AbstractView implements Observer {
 		btnGameStart.setBounds(452, 675, 153, 25);
 		add(btnGameStart);
 		
-		JSpinner spinnerAxeX = new JSpinner();
+		spinnerAxeX = new JSpinner();
 		spinnerAxeX.setBounds(42, 640, 53, 22);
 		spinnerAxeX.setModel(new SpinnerNumberModel(1, 1, game.getMapSize(), 1));
 		add(spinnerAxeX);
@@ -190,7 +192,7 @@ public class GameContainerView extends AbstractView implements Observer {
 		lblCoordonneerCase.setBounds(180, 646, 207, 16);
 		add(lblCoordonneerCase);
 		
-		JSpinner spinnerAxeY = new JSpinner();
+		spinnerAxeY = new JSpinner();
 		spinnerAxeY.setBounds(118, 640, 44, 22);
 		spinnerAxeY.setModel(new SpinnerNumberModel(1, 1, game.getMapSize(), 1));
 		add(spinnerAxeY);
