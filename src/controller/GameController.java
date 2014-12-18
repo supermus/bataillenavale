@@ -21,6 +21,11 @@ public class GameController extends AbstractController {
 		this.view = new GameContainerView(this, g);
 		GameContainerView containerView = (GameContainerView) view;
 	}
+	
+	public Game getGame()
+	{
+		return game;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0)
