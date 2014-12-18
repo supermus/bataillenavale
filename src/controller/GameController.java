@@ -17,8 +17,7 @@ public class GameController extends AbstractController {
 	
 	public GameController(Game g){
 		this.game = g;
-		this.view = new GameContainerView(this);
-		((GameContainerView)this.view).setModel(this.game);
+		this.view = new GameContainerView(this, g);
 		
 		GameContainerView containerView = (GameContainerView) view;
 

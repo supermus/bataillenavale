@@ -112,7 +112,7 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 		if(!isHuman) {
 			// TODO Auto-generated method stub
 			JLabel l = (JLabel) arg0.getSource();
-			System.out.println(l.getLocation().getX()/(mapSize*4) + ";" + l.getLocation().getY()/(mapSize*4));
+			System.out.println((int)(l.getLocation().getX()/(400/mapSize)) + ";" + (int)(l.getLocation().getY()/(400/mapSize)));
 
 		}
 

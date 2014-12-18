@@ -56,8 +56,10 @@ public class GameContainerView extends AbstractView implements Observer {
 	public JComboBox comboBox_1;
 	private Orientation orientation;
 
-	public GameContainerView(GameController c) {
+	public GameContainerView(GameController c, Game g) {
 		super(c);
+		game = g;
+		g.addObserver(this);
 		setPreferredSize(new Dimension(1024, 720));
 		setLayout(null);
 
@@ -71,11 +73,11 @@ public class GameContainerView extends AbstractView implements Observer {
 		menuButtonQuit = new JMenuItem("Quitter");
 		gameMenu.add(menuButtonQuit);
 
-		leftGrid = new GridView((GameController)controller, 10, true);
+		leftGrid = new GridView((GameController)controller, game.getMapSize(), false);
 		leftGrid.setBounds(42, 75, 400, 400);
 
 		add(leftGrid);
-		rightGrid = new GridView((GameController)controller, 10, true);
+		rightGrid = new GridView((GameController)controller, game.getMapSize(), false);
 		rightGrid.setBounds(582, 75, 400, 400);
 		add(rightGrid);
 
@@ -212,12 +214,5 @@ public class GameContainerView extends AbstractView implements Observer {
 		comboBox.addItem(Zodiac.SHIP_NAME+"("+ game.getNbZodiac()+")");
 		
 		
-	}
-	
-	public void setModel(Game g)
-	{
-		this.game = g;
-		this.game.addObserver(this);
-		this.update(null, null); // on force une update
 	}
 }
