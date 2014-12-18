@@ -45,7 +45,7 @@ public class GameController extends AbstractController implements MouseListener 
 			orientation = containerView.comboBoxOrien.getName();
 			x = (int) containerView.spinnerAxeX.getValue();
 			y = (int) containerView.spinnerAxeY.getValue();
-			game.getPlayer().get(0).placeBoat(boatType, new Position(x,y), size, orientation);
+			//game.getPlayer().get(0).placeBoat(boatType, new Position(x,y), size, orientation);
 		}
 		
 		if(e.getSource() == containerView.btnRemoveLastBoat){
