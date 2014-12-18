@@ -14,10 +14,11 @@ public class BatailleNavale{
 	
 	public static void main(String[] args)
 	{
-		// initialisation de la fenêtre
+		// initialisation de la fenÃªtre
 		System.out.println("Initialisation...");
 		window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 		
 		// chargement du menu
