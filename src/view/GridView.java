@@ -18,9 +18,19 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 	private JLabel[][] cells;
 	private boolean isHuman;
 	private int mapSize;
+	
+	// Sprites pour les cases
+	private ImageIcon iconWater;
+	private ImageIcon iconHit;
+	private ImageIcon iconMiss;
+	private ImageIcon iconBoat1;
+	private ImageIcon iconBoat2;
+	private ImageIcon iconBoat3;
+	private ImageIcon iconBoat4;
+	private ImageIcon iconBoat5;
 
 	/**
-	 * Create the panel.
+	 * Constructeur de test UNIQUEMENT !
 	 */
 	public GridView() {
 		super(new GameController(null));
@@ -42,23 +52,33 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 
 	}
 
-	public GridView(GameController c, int mapSize, boolean showShips, boolean isHuman) {
+	/**
+	 * Constructeur de GridView
+	 * @param c instance de GameController
+	 * @param mapSize entier donnant la taille de la grille
+	 * @param isHuman indique si la grille appartient à un humain
+	 */
+	public GridView(GameController c, int mapSize, boolean isHuman) {
 		super(c);
 		this.isHuman = isHuman;
 		this.mapSize = mapSize;
+		// chargement et redimensionnement des sprites;
+		this.iconWater = new ImageIcon(new ImageIcon("assets/water.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
+		this.iconHit = new ImageIcon(new ImageIcon("assets/hit.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
+		this.iconMiss = new ImageIcon(new ImageIcon("assets/miss.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat1 = new ImageIcon(new ImageIcon("assets/boat1.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat2 = new ImageIcon(new ImageIcon("assets/boat2.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat3 = new ImageIcon(new ImageIcon("assets/boat3.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat4 = new ImageIcon(new ImageIcon("assets/boat4.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
+		this.iconBoat5 = new ImageIcon(new ImageIcon("assets/boat5.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH));
 		setLayout(new GridLayout(mapSize, mapSize, 1, 1));
+		
 		cells = new JLabel[mapSize][mapSize];
 		for(int i = 0; i<mapSize; i++) {
 			for(int j = 0; j<mapSize; j++)
 			{
-				Image newimg = new ImageIcon("assets/water.png").getImage().getScaledInstance(400/mapSize, 400/mapSize,  java.awt.Image.SCALE_SMOOTH);
+				JLabel btn = new JLabel( iconWater );
 
-
-				JLabel btn = new JLabel( new ImageIcon(newimg) );
-
-				/*ImageIcon water = new ImageIcon("assets/v_5_5.png");
-				btn.setIcon(water);
-				btn.setPreferredSize(new Dimension(50,50));*/
 				cells[i][j] = btn;
 				btn.addMouseListener(this);
 				add(btn);
@@ -78,6 +98,10 @@ public class GridView extends AbstractView implements Observer, MouseListener {
 
 	}
 
+	/**
+	 * Indique si la grille appartient à un joueur humain (permet de décider ce qui doit être affiché ou non)
+	 * @return boolean true si humain, false sinon
+	 */
 	public boolean isHuman()
 	{
 		return isHuman;

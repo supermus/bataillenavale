@@ -71,11 +71,11 @@ public class GameContainerView extends AbstractView implements Observer {
 		menuButtonQuit = new JMenuItem("Quitter");
 		gameMenu.add(menuButtonQuit);
 
-		leftGrid = new GridView((GameController)controller, 10, true, false);
+		leftGrid = new GridView((GameController)controller, 10, true);
 		leftGrid.setBounds(42, 75, 400, 400);
 
 		add(leftGrid);
-		rightGrid = new GridView((GameController)controller, 10, true, false);
+		rightGrid = new GridView((GameController)controller, 10, true);
 		rightGrid.setBounds(582, 75, 400, 400);
 		add(rightGrid);
 
