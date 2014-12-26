@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Map.Entry;
 
 import model.ship.Ship;
 
@@ -9,19 +10,23 @@ public class Grid {
 	
 	private ArrayList<Ship> ships;//liste des navires	
 	private ArrayList<Position> missed ; //liste des coups ratés de l'adversaire
-	private ArrayList<Position> hits ; //liste des coups reussits de l'adversaire
-	private ArrayList<Position> attacks; //liste des attaques de l'adversaire
+	private ArrayList<Position> attacks; //rends la methode attaque plus facile(- de conditions..)
 	
 	public Grid(int size) {
 		this.size = size;
 		this.ships =new ArrayList<Ship>();
 		this.missed = new ArrayList<Position>();
-		this.hits = new ArrayList<Position>();
-		this.attacks = new ArrayList<Position>();
-		
+		this.attacks= new ArrayList<Position>();
 	}
 	
+	public ArrayList<Position> getAttacks() {
+		return attacks;
+	}
 	
+	public void addattacks(Position att	) {
+		this.attacks.add(att);
+	}
+
 	public void addShip(Ship ship){
 		ships.add(ship);
 	}
@@ -39,7 +44,6 @@ public class Grid {
 		public boolean isship(Position position){
 			 boolean isship=false;
 			for (int i = 0; i <this.getShip().size(); i++) {
-				System.out.println(this.getShip().get(i).getState()+"test");
 				if(this.getShip().get(i).hasPosition(position)){
 					isship=true;
 				break;
@@ -48,16 +52,6 @@ public class Grid {
 			return isship;
 			}
 
-	//verifie si la case est attaquée
-		public boolean isattacked(Position position){
-			 boolean isattacked=false;
-			for (int i = 0; i < this.getAttacks().size(); i++) {
-				if(this.getAttacks().get(i).equals(position)){
-					isattacked=true;
-				break;}
-				}
-			return isattacked;
-			}
 		public int getSize() {
 			return size;
 		}
@@ -67,32 +61,9 @@ public class Grid {
 			this.missed.add(miss);
 		}
 
-		public void addhits(Position hit) {
-			this.hits.add(hit);
-		}
-		public void addattacks(Position att	) {
-			this.attacks.add(att);
-		}
-		
-		public ArrayList<Position> getAttacks() {
-			return attacks;
-		}
-		public ArrayList<Position> getHits() {
-			return hits;
-		}
 		public ArrayList<Position> getMissed() {
 			return missed;
 		}
-		
-		public boolean ishits(Position position){
-			 boolean ishits=false;
-			for (int i = 0; i < this.hits.size(); i++) {
-				if(this.hits.get(i).equals(position)){
-					ishits=true;
-				break;}
-					}
-			return ishits;
-			}
 		public boolean ismissed(Position position){
 			 boolean ismissed=false;
 			for (int i = 0; i < this.missed.size(); i++) {
@@ -102,6 +73,54 @@ public class Grid {
 					}
 			return ismissed;
 			}
+		
+		
+		
+		//verifie si la case est attaquée
+				public boolean isattacked(Position position){
+					 boolean isattacked=false;
+					for (int i = 0; i < this.getAttacks().size(); i++) {
+						if(this.getAttacks().get(i).equals(position)){
+							isattacked=true;
+						break;}
+						}
+					return isattacked;
+					}
+
+		
+		
+		//verifie si la case est attaquée
+//			public boolean isattacked(Position position){
+//				 boolean boll=false;
+//					for (int i = 0; i <this.getShip().size(); i++) {
+//						for (Entry<Position, Boolean> entry : this.getShip().get(i).getState().entrySet()) {
+//				            if (entry.getKey().equals(position)) {
+//				            	boll=entry.getValue();
+//				            	break;
+//				            }
+//						}
+//							}
+//					return boll;
+//				}		
+//		public void addhits(Position hit) {
+//			this.hits.add(hit);
+//		}
+		
+//		
+//		public ArrayList<Position> getHits() {
+//			return hits;
+//		}
+		
+//		public boolean ishits(Position position){
+//			 boolean ishits=false;
+//			for (int i = 0; i < this.hits.size(); i++) {
+//				if(this.hits.get(i).equals(position)){
+//					ishits=true;
+//				break;}
+//					}
+//			return ishits;
+//			}
+		
 		 
 	
 

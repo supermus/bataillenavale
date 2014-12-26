@@ -2,8 +2,8 @@ package model.mode;
 
 import java.util.Map.Entry;
 
-import model.Player;
 import model.Position;
+import model.Player.Player;
 
 public class Radar extends Battle {
 	
@@ -17,7 +17,6 @@ public class Radar extends Battle {
 		if(!adversaire.getGrid().isattacked(position)){
 			//s'il n'est pas attaqué il verifie si cette derniere contient un navire 
 			if(adversaire.getGrid().isship(position)){
-				adversaire.getGrid().addhits(position);
 				//change etat de la case du navire de l'adversaire
 				for (int i = 0; i < adversaire.getGrid().getShip().size(); i++) {
 					if(adversaire.getGrid().getShip().get(i).getState().containsKey(position.toString())){
@@ -42,7 +41,6 @@ public class Radar extends Battle {
 				}
 	           	System.out.println("Raté mais le radar indique qu'un navire se trouve dans un rayon de "+resultat+" cases");
 			}
-			//marque la case comme ataqué
 			adversaire.getGrid().addattacks(position);
 		}
 		else{

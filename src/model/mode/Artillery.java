@@ -1,7 +1,7 @@
 package model.mode;
 
-import model.Player;
 import model.Position;
+import model.Player.Player;
 
 public class Artillery extends Battle{
 
@@ -11,7 +11,6 @@ public class Artillery extends Battle{
 		x=this.getresult(this.getNumbers(adversaire.getGrid(), y));
 		Position position=new Position(x, y);
 			if(adversaire.getGrid().isship(position)){
-				adversaire.getGrid().addhits(position);
 				for (int i = 0; i < adversaire.getGrid().getShip().size(); i++) {
 					if(adversaire.getGrid().getShip().get(i).getState().containsKey(position.toString())){
 						adversaire.getGrid().getShip().get(i).setStates(position);
@@ -22,6 +21,7 @@ public class Artillery extends Battle{
 			else{
 				adversaire.getGrid().addMissed(position);
 			}
+
 			adversaire.getGrid().addattacks(position);
 		
 		}

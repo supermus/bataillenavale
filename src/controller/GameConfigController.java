@@ -3,11 +3,11 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-import model.Computer;
 import model.Game;
 import model.Grid;
-import model.Human;
-import model.Player;
+import model.Player.Computer;
+import model.Player.Human;
+import model.Player.Player;
 import model.mode.Artillery;
 import model.mode.Battle;
 import model.mode.Classic;

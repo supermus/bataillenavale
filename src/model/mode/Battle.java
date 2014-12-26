@@ -1,14 +1,11 @@
 package model.mode;
 
 import java.util.ArrayList;
-import java.util.Map.Entry;
 
-import model.*;
-import model.ship.*;
 import model.Grid;
 import model.Orientation;
-import model.Player;
 import model.Position;
+import model.Player.Player;
 import model.ship.AircraftCarrier;
 import model.ship.Ironclad;
 import model.ship.Submarine;

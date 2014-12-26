@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import model.Game;
-import model.Player;
+import model.Player.Player;
 import model.Position;
 import model.ship.AircraftCarrier;
 import model.ship.Ironclad;

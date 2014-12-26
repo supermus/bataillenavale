@@ -7,6 +7,7 @@ import java.util.Observable;
 
 import javax.swing.Timer;
 
+import model.Player.Player;
 import model.mode.Battle;
 
 public class Game extends Observable {
