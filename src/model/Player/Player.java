@@ -1,6 +1,5 @@
 package model.Player;
 
-import java.util.*;
 
 import model.*;
 import model.ship.*;
@@ -14,7 +13,7 @@ public abstract class Player {
 	private int 	hits; 	// compteur coups réussis
 	private int 	miss; 	// compteur coups ratés
 	private Grid 	grid; 	// grille
-	
+	private boolean turn;
 	
 	/**
 	 * Constructeur principal de Player
@@ -28,6 +27,7 @@ public abstract class Player {
 		this.miss = 0;
 		this.grid = g;
 		this.status = "inconnu";
+		this.turn=true;
 	}
 	
 	public boolean placeBoat(String name, Position origin,  Orientation orientation){
@@ -249,9 +249,7 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 	 */
 	public void setScore(int score) {
 		this.score = score;
-	}
-	
-	/**
+	}/**
 	 * Incrémente le score du joueur
 	 * @param score montant à ajouter au score
 	 */
@@ -316,5 +314,16 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 		
 		return bool;
 		
+	}
+
+	public void enable(){
+		this.turn=true;
+		}
+
+	public void disable(){
+		this.turn=false;
+	}
+	public boolean getturn(){
+		return this.turn;
 	}
 }

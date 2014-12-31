@@ -17,6 +17,7 @@ public class Artillery extends Battle{
 					} 
 				}
 				player.addScore(10);
+				adversaire.getGrid().addhits(position);
 			}
 			else{
 				adversaire.getGrid().addMissed(position);

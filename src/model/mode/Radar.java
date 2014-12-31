@@ -25,6 +25,8 @@ public class Radar extends Battle {
 				}
 				//ajout score
 				player.addScore(10);
+				player.addHit();
+				adversaire.getGrid().addhits(position);
 			}
 			else{
 				//ajout des coups ratés
@@ -42,6 +44,7 @@ public class Radar extends Battle {
 	           	System.out.println("Raté mais le radar indique qu'un navire se trouve dans un rayon de "+resultat+" cases");
 			}
 			adversaire.getGrid().addattacks(position);
+			
 		}
 		else{
 			System.out.println("pas d'attaque");

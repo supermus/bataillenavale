@@ -4,10 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Scanner;
 
 import javax.swing.Timer;
 
-import model.Player.Player;
+import com.sun.xml.internal.ws.api.pipe.NextAction;
+
+import model.Player.*;
 import model.mode.Battle;
 
 public class Game extends Observable {
@@ -21,10 +24,6 @@ public class Game extends Observable {
 	private int nbZodiac;
 	private Timer timeCount;
 	private int time;
-	private int tour;
-
-	
-
 	
 	public Game(ArrayList<Player> player, Battle mode, int mapSize,int nbSubmarine,int nbAircraftCarrier, int nbIronclad, int nbZodiac  ){
 		this.player = player;
@@ -35,7 +34,6 @@ public class Game extends Observable {
 		this.nbAircraftCarrier = nbAircraftCarrier;
 		this.nbZodiac = nbZodiac;
 		this.time = 0;
-		this.tour = 0;
 		
 		
 		// Compteur pour le temps
@@ -47,9 +45,49 @@ public class Game extends Observable {
 	}
 	
    public void start(){
-		timeCount.start();
-	}
-	
+	//	timeCount.start();
+		int i=1;
+		while(!player.get(0).win(player.get(1))&&!player.get(1).win(player.get(0))){
+			
+			System.out.println("Turn player"+i);
+		this.turnplayer((Human) player.get(0), player.get(1));
+		i++;
+		System.out.println("Turn computer"+i);
+		this.turncomputer((Computer) player.get(1), player.get(0));
+	i++;	}
+		if(player.get(0).win(player.get(1))){
+			System.out.println("le gagnant est: "+player.get(0));
+			}
+		if(player.get(1).win(player.get(0))){
+			System.out.println("le gagnant est: "+player.get(1));
+			
+		}
+		
+   
+   }
+
+   public void turnplayer(Human player,Player adversaire){
+	   Scanner sc = new Scanner(System.in);
+	   int x, y;
+	   System.out.println("x=");
+	      x = sc.nextInt();
+	   System.out.println("y=");
+	      y = sc.nextInt();
+	   mode.attack(player, adversaire, new Position(x, y));
+	   for(int i=0;i<player.getGrid().getShip().size();i++){
+	   System.out.println(player.getGrid().getShip().get(i).getState());
+	   }
+   }
+   
+
+   public void turncomputer(Computer player,Player adversaire){
+	   mode.attack(player, adversaire, player.gettarget(adversaire.getGrid()));
+	   for(int i=0;i<player.getGrid().getShip().size();i++){
+		   System.out.println(player.getGrid().getShip().get(i).getState());
+		   }
+	   
+   }
+   
    public  int getNbZodiac(){
 	   return nbZodiac;
    }
@@ -66,9 +104,6 @@ public class Game extends Observable {
 		return nbSubmarine;
 	}
 	
-	public int getTurn(){
-		return tour;
-	}
 	
 	public int getTime(){
 		return time;

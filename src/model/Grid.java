@@ -1,22 +1,22 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Map.Entry;
 
 import model.ship.Ship;
 
 public class Grid {
 	int size;
-	
 	private ArrayList<Ship> ships;//liste des navires	
 	private ArrayList<Position> missed ; //liste des coups ratés de l'adversaire
 	private ArrayList<Position> attacks; //rends la methode attaque plus facile(- de conditions..)
+	private ArrayList<Position> hits; //utilisable (Computer->difficult� normal) 
 	
 	public Grid(int size) {
 		this.size = size;
 		this.ships =new ArrayList<Ship>();
 		this.missed = new ArrayList<Position>();
 		this.attacks= new ArrayList<Position>();
+		this.hits= new ArrayList<Position>();
 	}
 	
 	public ArrayList<Position> getAttacks() {
@@ -87,41 +87,39 @@ public class Grid {
 					return isattacked;
 					}
 
+
+		public void addhits(Position hit) {
+			this.hits.add(hit);
+		}
 		
 		
-		//verifie si la case est attaquée
-//			public boolean isattacked(Position position){
-//				 boolean boll=false;
-//					for (int i = 0; i <this.getShip().size(); i++) {
-//						for (Entry<Position, Boolean> entry : this.getShip().get(i).getState().entrySet()) {
-//				            if (entry.getKey().equals(position)) {
-//				            	boll=entry.getValue();
-//				            	break;
-//				            }
-//						}
-//							}
-//					return boll;
-//				}		
-//		public void addhits(Position hit) {
-//			this.hits.add(hit);
-//		}
+		public ArrayList<Position> getHits() {
+			return hits;
+		}
 		
-//		
-//		public ArrayList<Position> getHits() {
-//			return hits;
-//		}
+	public boolean ishits(Position position){
+		 boolean ishits=false;		
+		 for (int i = 0; i < this.hits.size(); i++) {
+			if(this.hits.get(i).equals(position)){
+				ishits=true;
+				break;}
+				}
+			return ishits;
+			}
 		
-//		public boolean ishits(Position position){
-//			 boolean ishits=false;
-//			for (int i = 0; i < this.hits.size(); i++) {
-//				if(this.hits.get(i).equals(position)){
-//					ishits=true;
-//				break;}
+	//verifie si la case est attaquée
+//	public boolean isattacked(Position position){
+//		 boolean boll=false;
+//			for (int i = 0; i <this.getShip().size(); i++) {
+//				for (Entry<Position, Boolean> entry : this.getShip().get(i).getState().entrySet()) {
+//		            if (entry.getKey().equals(position)) {
+//		            	boll=entry.getValue();
+//		            	break;
+//		            }
+//				}
 //					}
-//			return ishits;
-//			}
-		
-		 
+//			return boll;
+//		}		
 	
 
 }

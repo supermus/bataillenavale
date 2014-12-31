@@ -55,6 +55,9 @@ public abstract class Battle {
 		
 	}
 */
+	public void attack(Player player, Player adversaire,Position position){
+		
+	}
 	
 	public ArrayList<Integer> getNumbers(Grid g, int y) {
 		for (int i = 0; i < g.getSize(); i++) {

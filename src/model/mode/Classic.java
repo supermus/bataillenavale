@@ -21,6 +21,7 @@ public class Classic extends Battle {
 				//ajout score
 				player.addScore(10);
 				player.addHit();
+				adversaire.getGrid().addhits(position);
 			}
 			else {
 					

@@ -21,6 +21,7 @@ public class RedAlert extends Battle {
 					} 
 				}
 				player.addScore(10);
+				adversaire.getGrid().addhits(position);
 			}
 			else{
 				//ajout des coups ratés
