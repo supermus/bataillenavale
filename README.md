@@ -2,9 +2,9 @@
 ==============
 
 Walid
-	-IA
-	-Modificaton methode de la class grid
-	- Mode classique
+	-IA (done) reste mode difficile
+	-Modificaton methode de la class grid (done) j'ai laissé les arraylist attack hits je les ai utilisé dans d'autres 		classes
+	- Mode classique(done)
 mus
 	- Design menuView
 	- Controller ScoreController
@@ -16,4 +16,4 @@ raph
 
 mickael
 	-finir l'affichage gameContainerView
-	- placement des bateaux
+	- placement des bateaux(done)
