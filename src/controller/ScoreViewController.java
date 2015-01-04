@@ -12,6 +12,10 @@ import view.ScoreView;
 public class ScoreViewController extends AbstractController {
 	
 	 private static Game game;
+	 
+	 	public static Game getGame() {
+		return game;
+	}
 
 	public ScoreViewController(Game g)
 	{
