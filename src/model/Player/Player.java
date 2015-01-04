@@ -8,17 +8,17 @@ public abstract class Player {
 
 	
 	private String 	nom; 	// nom du joueur ou de l'ordinateur
-	private String 	status; // état du joueur (gagnant/perdant)
+	private String 	status; // أ©tat du joueur (gagnant/perdant)
 	private int		score; 	// score courant
-	private int 	hits; 	// compteur coups réussis
-	private int 	miss; 	// compteur coups ratés
+	private int 	hits; 	// compteur coups rأ©ussis
+	private int 	miss; 	// compteur coups ratأ©s
 	private Grid 	grid; 	// grille
 	private boolean turn;
 	
 	/**
 	 * Constructeur principal de Player
 	 * @param nom Nom du joueur
-	 * @param g grille associée à ce joueur
+	 * @param g grille associأ©e أ  ce joueur
 	 */
 	public Player(String nom, Grid g) {
 		this.nom = nom;
@@ -36,7 +36,7 @@ public abstract class Player {
 		switch(orientation)
 		{
 		case Horizontale :
-			//Vérification si un bateau existe deja à cette position 
+			//Vأ©rification si un bateau existe deja أ  cette position 
 			for(int i=0 ; i<size && boat==true ; i++){
 				if(grid.isship(new Position(origin.getX()+i,origin.getY()))){
 					boat=false;
@@ -71,7 +71,7 @@ public abstract class Player {
 			break;
 		*/
 		case Verticale :
-			//Vérification si un bateau existe deja à cette position 
+			//Vأ©rification si un bateau existe deja أ  cette position 
 			for(int i=0 ; i<size && boat==true ; i++){
 				if(grid.isship(new Position(origin.getX(),origin.getY()+i))){
 					boat=false;
@@ -119,7 +119,7 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 		switch(orientation)
 		{
 		case Horizontale :
-			//Vérification si un bateau existe deja à cette position 
+			//Vأ©rification si un bateau existe deja أ  cette position 
 			for(int i=0 ; i<size && boat==true ; i++){
 				if(!grid.isship(new Position(origin.getX()+i,origin.getY()))){
 					boat=false;
@@ -156,7 +156,7 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 		
 			
 		case Verticale :
-			//Vérification si un bateau existe deja à cette position 
+			//Vأ©rification si un bateau existe deja أ  cette position 
 			for(int i=0 ; i<size && boat==true ; i++){
 				if(!grid.isship(new Position(origin.getX(),origin.getY()+i))){
 					boat=false;
@@ -218,6 +218,17 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 		return "Player [nom=" + nom + ", status=" + status + ", nombre d'attaques="
 				+ (miss+hits) + ", score=" + score + "]";
 	}
+
+	
+
+	/**
+	 * Retourne le nom du joueur
+	 * @return String nom du joueur
+	 */
+	public String getNom()
+	{
+		return nom;
+	}
 	
 	/**
 	 * Retourne le nombre de coups total du joueur
@@ -228,36 +239,21 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 	}
 
 	/**
-	 * Retourne le nombre de coups réussis du joueur
-	 * @return int nombre de coups réussis
+	 * Retourne le nombre de coups rأ©ussis du joueur
+	 * @return int nombre de coups rأ©ussis
 	 */
 	public int getHits() {
 		return hits;
 	}
 
 	/**
-	 * Retourne le nombre de coups ratés du joueur
-	 * @return int nombre de coups ratés
+	 * Retourne le nombre de coups ratأ©s du joueur
+	 * @return int nombre de coups ratأ©s
 	 */
 	public int getMiss() {
 		return miss;
 	}
-
-	/**
-	 * Remplace le score du joueur
-	 * @param score nouvelle valeur du score
-	 */
-	public void setScore(int score) {
-		this.score = score;
-	}/**
-	 * Incrémente le score du joueur
-	 * @param score montant à ajouter au score
-	 */
-	public void addScore(int score)
-	{
-		this.score += score;
-	}
-
+	
 	/**
 	 * Retourne le score courant du joueur
 	 * @return int valeur du score
@@ -266,14 +262,37 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 		return score;
 	}
 	
+	
 	/**
-	 * Retourne le nom du joueur
-	 * @return String nom du joueur
+	 * les bateaux écoulés
 	 */
-	public String getNom()
-	{
-		return nom;
+	public int nbrboathits(Player adversaire){
+		int nbrboats=0;
+		for (int i = 0; i <adversaire.getGrid().getShip().size(); i++) {
+			if(adversaire.getGrid().getShip().get(i).isDead()){
+				nbrboats++;
+			}
+		}
+		
+		return nbrboats;	
 	}
+	
+	
+	/**
+	 * Remplace le score du joueur
+	 * @param score nouvelle valeur du score
+	 */
+	public void setScore(int score) {
+		this.score = score;
+	}/**
+	 * Incrأ©mente le score du joueur
+	 * @param score montant أ  ajouter au score
+	 */
+	public void addScore(int score)
+	{
+		this.score += score;
+	}
+
 	
 	/**
 	 * Retourne la grille du joueur
@@ -285,7 +304,7 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 	}
 	
 	/**
-	 * Incrémente de 1 le compteur de coups réussis
+	 * Incrأ©mente de 1 le compteur de coups rأ©ussis
 	 */
 	public void addHit()
 	{
@@ -293,7 +312,7 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 	}
 	
 	/**
-	 * Incrémente de 1 le compteur de coups ratés
+	 * Incrأ©mente de 1 le compteur de coups ratأ©s
 	 */
 	public void addMiss()
 	{
@@ -312,8 +331,7 @@ public boolean placeBoat(String name, Position origin, int size, Orientation ori
 			}
 		}
 		
-		return bool;
-		
+		return bool;	
 	}
 
 	public void enable(){
