@@ -13,17 +13,15 @@ public class ScoreViewController extends AbstractController {
 	
 	 private static Game game;
 	 
-	 	public static Game getGame() {
-		return game;
-	}
-
 	public ScoreViewController(Game g)
 	{
 		this.game = g;
 		this.view = new ScoreView(this);
 	}
 	
-	
+	public static Game getGame() {
+		return game;
+	}
 
 	public void actionPerformed(ActionEvent e) {
 		
