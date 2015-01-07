@@ -7,29 +7,19 @@ import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 
 import model.Game;
-import model.Orientation;
-import model.Position;
-import model.ship.AircraftCarrier;
-import model.ship.Ironclad;
-import model.ship.Submarine;
-import model.ship.Zodiac;
-import view.GameConfigView;
 import view.GameContainerView;
 
 public class GameController extends AbstractController implements MouseListener {
-	
-	Game game;
-	
+
+	/**
+	 * Constructeur par défaut de GameController
+	 * Il associe la vue GameContainerView
+	 */
 	public GameController(Game g)
 	{
 		this.game = g;
 		this.view = new GameContainerView(this, g);
 		GameContainerView containerView = (GameContainerView) view;
-	}
-	
-	public Game getGame()
-	{
-		return game;
 	}
 
 	@Override
@@ -38,7 +28,7 @@ public class GameController extends AbstractController implements MouseListener 
 		GameContainerView containerView = (GameContainerView) view;
 		String boatType, orientation;
 		int x, y;
-		if(e.getSource()== containerView.btnValidate );
+		if(e.getSource()== containerView.btnValidate )
 		{
 			//Extraction des données
 			boatType = containerView.comboBoxBoat.getName();
@@ -47,13 +37,13 @@ public class GameController extends AbstractController implements MouseListener 
 			y = (int) containerView.spinnerAxeY.getValue();
 			//game.getPlayer().get(0).placeBoat(boatType, new Position(x,y), size, orientation);
 		}
-		
+
 		if(e.getSource() == containerView.btnRemoveLastBoat){
-			
+
 		}
-		
+
 		if(e.getSource()== containerView.btnGameStart){
-			
+
 		}
 	}
 
@@ -61,32 +51,32 @@ public class GameController extends AbstractController implements MouseListener 
 	public void mouseClicked(MouseEvent arg0) {
 		JLabel l = (JLabel) arg0.getSource();
 		System.out.println((int)(l.getLocation().getX()/(400/game.getMapSize())) + ";" + (int)(l.getLocation().getY()/(400/game.getMapSize())));
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 
 }

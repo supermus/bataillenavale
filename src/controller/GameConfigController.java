@@ -17,13 +17,16 @@ import view.GameConfigView;
 import core.BatailleNavale;
 
 public class GameConfigController extends AbstractController{
-	
-	
+
+	/**
+	 * Constructeur par défaut de GameConfigController
+	 * Il associe la vue GameConfigView
+	 */
 	public GameConfigController()
 	{
 		view = new GameConfigView(this);
 	}
-	
+
 
 	@Override
 	public void actionPerformed(ActionEvent e)
@@ -31,11 +34,11 @@ public class GameConfigController extends AbstractController{
 		GameConfigView configView = (GameConfigView) view;
 		String playerName, gameType, difficulty, battleType;
 		int mapSize, amountBoat1, amountBoat2, amountBoat3, amountBoat4;
-		
+
 		if(e.getSource() == configView.btnValider)
 		{
 			// extraction des valeurs de configuration
-			playerName = configView.txtUsername.getText();	
+			playerName = configView.txtUsername.getText();
 			gameType = configView.bg0.getSelection().getActionCommand();
 			mapSize = Integer.parseInt(configView.bg1.getSelection().getActionCommand());
 			difficulty = configView.bg2.getSelection().getActionCommand();
@@ -44,7 +47,7 @@ public class GameConfigController extends AbstractController{
 			amountBoat2 = (int) configView.spinnerPorteAvion.getValue();
 			amountBoat3 = (int) configView.spinnerCuirassésFurtif.getValue();
 			amountBoat4 = (int) configView.spinnerZodiac.getValue();
-			
+
 			// préparation de la partie
 			Battle battle = null;
 			ArrayList<Player> players = new ArrayList<Player>();
@@ -52,23 +55,28 @@ public class GameConfigController extends AbstractController{
 			Game game = null;
 
 			// type de bataille
-			if(battleType.equals("BatailleNavalle"))
+			if(battleType.equals("BatailleNavalle")) {
 				battle = new Classic();
-			if(battleType.equals("AlerteRouge"))
+			}
+			if(battleType.equals("AlerteRouge")) {
 				battle = new RedAlert();
-			if(battleType.equals("Artillerie"))
+			}
+			if(battleType.equals("Artillerie")) {
 				battle = new Artillery();
-			if(battleType.equals("Radar"))
+			}
+			if(battleType.equals("Radar")) {
 				battle = new Radar();
-			
+			}
+
 			// niveau ordinateurs
-			if(difficulty.equals("Facile"))
+			if(difficulty.equals("Facile")) {
 				computerDifficulty = Computer.DIFFICULTY_EASY;
-			else if(difficulty.equals("Intermédiaire"))
+			} else if(difficulty.equals("Intermédiaire")) {
 				computerDifficulty = Computer.DIFFICULTY_NORMAL;
-			else
+			} else {
 				computerDifficulty = Computer.DIFFICULTY_HARD;
-			
+			}
+
 			// type de partie
 			if(gameType.equals("Demo"))
 			{
@@ -80,20 +88,20 @@ public class GameConfigController extends AbstractController{
 				players.add(new Human(playerName, new Grid(mapSize)));
 				players.add(new Computer("Computer2", new Grid(mapSize), computerDifficulty));
 			}
-			
+
 			System.out.println("Préparation d'une nouvelle partie");
 			System.out.println("type : " + battleType + " (" + gameType + ")");
 			System.out.println("map de taille " + mapSize + "x" + mapSize);
 			System.out.println("limites : " + amountBoat1 + " sous-marins, " + amountBoat2 + " porteavions, " + amountBoat3 + " cuirassés, " + amountBoat4 + " zodiacs.");
-			
+
 			game = new Game(players, battle, mapSize, amountBoat1, amountBoat2, amountBoat3, amountBoat4);
 			BatailleNavale.changeScreen(new GameController(game)); // passage à GameController
 		}
 		else if (e.getSource() == configView.btnAnnuler)
 		{
-				BatailleNavale.changeScreen(new MenuController()); // retour menu
+			BatailleNavale.changeScreen(new MenuController()); // retour menu
 		}
-			
+
 	} // fin actionPerformed
 
 }
