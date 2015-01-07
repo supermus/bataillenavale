@@ -69,13 +69,7 @@ public class Game extends Observable {
 			System.out.println("Turn computer"+i);
 			this.turncomputer((Computer) player.get(1), player.get(0));
 			i++;	}
-		if(player.get(0).win(player.get(1))){
-			System.out.println("le gagnant est: "+player.get(0));
-		}
-		if(player.get(1).win(player.get(0))){
-			System.out.println("le gagnant est: "+player.get(1));
-
-		}
+		
 
 
 	}
@@ -187,6 +181,23 @@ public class Game extends Observable {
 	 */
 	public int getMapSize(){
 		return mapSize;
+	}
+	/**
+	 * Retourne ljoueur gagnant
+	 * @return taille de la carte
+	 */
+	public Player winner() {
+		// TODO Auto-generated method stub
+		if(player.get(0).win(player.get(1))){
+			return player.get(0);
+		}
+		else if(player.get(1).win(player.get(0))){
+			return player.get(1);
+
+		}
+		else{
+		return null;
+		}	
 	}
 
 }
