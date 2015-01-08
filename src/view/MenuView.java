@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 
 import javax.swing.JButton;
 
@@ -18,13 +19,15 @@ public class MenuView extends AbstractView {
 	public JButton btnQuit;
 	public JButton btnCredits;
 	
+	
 	public MenuView(MenuController c) {
 		super(c);
-		setLayout(new GridLayout(0, 1, 0, 0));
+		setLayout(new GridLayout(0, 3, 0, 0));
 		
 		btnPlay = new JButton("Play");
 		btnPlay.addActionListener(controller);
 		add(btnPlay);
+		
 		
 		btnQuit = new JButton("Quit");
 		btnQuit.addActionListener(controller);
@@ -33,6 +36,7 @@ public class MenuView extends AbstractView {
 	    btnCredits = new JButton("Credits");
 	    btnCredits.addActionListener(controller);
 		add(btnCredits);
+		
 
 	}
 
