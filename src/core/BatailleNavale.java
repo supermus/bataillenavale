@@ -1,32 +1,37 @@
 package core;
 
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import controller.AbstractController;
 import controller.MenuController;
 
 public class BatailleNavale{
-
+	
 	private static JFrame window;
 	private static AbstractController controller;
+	
+	
 
 	public static void main(String[] args)
 	{
-		// initialisation de la fenêtre
+		// initialisation de la fenØ£Ú¾tre
 		System.out.println("Initialisation...");
-		window = new JFrame();
+		window = new JFrame("Bataille Navale");
+	    
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setLocationRelativeTo(null);
 		window.setVisible(true);
-
+		
 		// chargement du menu
 		changeScreen(new MenuController());
 	}
+	
 
-	/**
-	 * Permet de passer d'un écran à un autre (ex: menu -> écran de config de partie)
-	 * @param c Le controller à utiliser
-	 */
+
 	public static void changeScreen(AbstractController c)
 	{
 		System.out.println("Nouveau controller : " + c.toString());
